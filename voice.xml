@@ -1,12 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version="2.1">
-
-    <form>
-    <block>
-    <prompt>
-    Hello World!
-    </prompt>
-    </block>
+    <form id="welcome">
+        <block>
+            <prompt>Welcome to METEO Service, your weather companion for farming success. Please select your language preference.</prompt>
+            <field name="language">
+                <prompt>Press 1 for English. Press 2 for French. Press 3 for local languages like Bambara or Mooré.</prompt>
+                <grammar src="builtin:dtmf/digits"/>
+                <filled>
+                    <prompt>
+                        <if cond="language == '1'">
+                            You selected English.
+                        <elseif cond="language == '2'"/>
+                            You selected French.
+                        <else/>
+                            You selected a local language.
+                        </if>
+                    </prompt>
+                    <goto next="#mainMenu"/>
+                </filled>
+            </field>
+        </block>
     </form>
 
+    <menu id="mainMenu">
+        <prompt>Please choose from the following options.</prompt>
+        <choice next="#weatherReport">Press 1 for Weather Report.</choice>
+        <choice next="#mainMenu" dtmf="0">Press 0 to repeat these options.</choice>
+    </menu>
+
+    <form id="weatherReport">
+        <field name="weatherOption">
+            <prompt>
+                Access detailed daily and weekly weather forecasts to support your farming decisions.
+                Please select the type of forecast you need. 
+                Press 0 for Today's Weather. 
+                Press 9 to Return to the Main Menu.
+            </prompt>
+            <grammar src="builtin:dtmf/digits"/>
+            <filled>
+                <if cond="weatherOption == '0'">
+                    <prompt>Today's weather forecast: Highs of 25°C, lows of 15°C, with a slight chance of rain.</prompt>
+                </if>
+                <if cond="weatherOption == '9'">
+                    <goto next="#mainMenu"/>
+                </if>
+            </filled>
+        </field>
+    </form>
 </vxml>
