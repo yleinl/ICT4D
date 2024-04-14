@@ -6,13 +6,7 @@
         <prompt>
             Welcome to METEO Service, your weather companion for farming success. Please select your language preference.>
         </prompt>
-        <option dtmf="1" value="English">English</option>
-        <option dtmf="2" value="French">French</option>
-        <filled>
-            <prompt>The language you choose is<value expr="service"/></prompt>
-        </filled>
         <goto next="#mainMenu"/>
-        </field>
     </form>
     <form id="mainMenu">
       <block>
