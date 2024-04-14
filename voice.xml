@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version="2.1">
     <form id="language">
-        <property name="inputmode" value="dtmf"/>
-        <field name="service">
         <prompt>
             Welcome to METEO Service, your weather companion for farming success. Please select your language preference.>
         </prompt>
