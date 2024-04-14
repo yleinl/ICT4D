@@ -10,9 +10,9 @@
         <option dtmf="2" value="French">French</option>
         <filled>
             <prompt>The language you choose is<value expr="service"/></prompt>
-            <goto next="#mainMenu"/>
         </filled>
-    </field>
+        <goto next="#mainMenu"/>
+        </field>
     </form>
     <form id="mainMenu">
         <prompt>
