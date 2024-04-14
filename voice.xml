@@ -18,16 +18,41 @@
 
     <!-- 2. Main Menu -->
     <menu id="mainMenu">
-        <prompt>Please choose from the following options.</prompt>
-        <option dtmf="1" value="weatherReport">Press 1 for Weather Report</option>
-        <option dtmf="2" value="seasonalPatterns">Press 2 for Seasonal Weather Patterns and Predictions</option>
-        <option dtmf="3" value="plantingSuggestion">Press 3 for Planting Suggestion Based on Current Weather</option>
-        <option dtmf="4" value="reportRainfall">Press 4 to Report Local Rainfall</option>
-        <option dtmf="5" value="indigenousKnowledge">Press 5 for Indigenous Knowledge on Rainfall</option>
-        <option dtmf="6" value="agriKnowledge">Press 6 for Agricultural Knowledge Today</option>
-        <option dtmf="7" value="alertSubscription">Press 7 for Alert Subscription</option>
-        <option dtmf="0" value="repeat">Press 0 to repeat these options</option>
-    </menu>
+    <prompt>Please choose from the following options.</prompt>
+    <choice next="#weatherReport">
+        <dtmf>1</dtmf>
+        Weather Report
+    </choice>
+    <choice next="#seasonalWeather">
+        <dtmf>2</dtmf>
+        Seasonal Weather Patterns and Predictions
+    </choice>
+    <choice next="#plantingSuggestion">
+        <dtmf>3</dtmf>
+        Planting Suggestion Based on Current Weather
+    </choice>
+    <choice next="#reportRainfall">
+        <dtmf>4</dtmf>
+        Report Local Rainfall
+    </choice>
+    <choice next="#indigenousKnowledge">
+        <dtmf>5</dtmf>
+        Indigenous Knowledge on Rainfall
+    </choice>
+    <choice next="#agriculturalKnowledge">
+        <dtmf>6</dtmf>
+        Agricultural Knowledge Today
+    </choice>
+    <choice next="#alertSubscription">
+        <dtmf>7</dtmf>
+        Alert Subscription
+    </choice>
+    <choice next="#mainMenu">
+        <dtmf>0</dtmf>
+        Repeat these options
+    </choice>
+</menu>
+
 
     <!-- 3. Weather Report -->
     <form id="weatherReport">
