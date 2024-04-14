@@ -308,8 +308,10 @@
         </record>
         <block>
             <prompt>
-                Your message is <value expr="msg"/>。
+                Your message is <value expr="msg"/>. Message successfully. 
             </prompt>
         </block>
+        <break time="3s"/> 
+        <goto next="#mainMenu"/>
     </form>
 </vxml>
