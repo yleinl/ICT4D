@@ -106,7 +106,7 @@
                     <prompt>
                         You will return to the main menu.
                     </prompt>
-                <elseif cond =  "date=='Weak"/>
+                <elseif cond = "date=='Weak'"/>
                     <prompt>
                         Here's the weekly weather summary, focusing on the agricultural needs for the rainy season.
                     </prompt>
@@ -166,8 +166,8 @@
                 You can say story to hear stories and lessons from local farmers
                 You can say return to go back the main menu. 
             </prompt>
-            <grammar mode="voice" root="item4">
-                <rule id="item4">
+            <grammar mode="voice" root="item9">
+                <rule id="item9">
                     <one-of>
                     <item>weather prediction</item>
                     <item>weather adaptation</item>
