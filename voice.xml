@@ -3,6 +3,7 @@
     <form id="welcome">
         <block>
             <prompt>Welcome to METEO Service, your weather companion for farming success. Please select your language preference.</prompt>
+            <goto next="#language"/>
             <field name="language">
                 <prompt>Press 1 for English. Press 2 for French. Press 3 for local languages like Bambara or Mooré.</prompt>
                 <grammar src="builtin:dtmf/digits"/>
