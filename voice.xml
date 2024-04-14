@@ -7,7 +7,6 @@
             </prompt>
             <option next="#mainMenu">English</option>
             <option next="#mainMenu">French</option>
-            <goto next="#mainMenu"/>
         </block>
     </form>
     <form id="mainMenu">
