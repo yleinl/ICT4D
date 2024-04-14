@@ -2,16 +2,11 @@
 <vxml version="2.1">
     <form id="language">
         <block>
-            <property name="inputmode" value="dtmf"/>
             <prompt>
                 Welcome to METEO Service, your weather companion for farming success. Please select your language preference.>
             </prompt>
             <option dtmf="1" value="English">English</option>
             <option dtmf="2" value="French">French</option>
-            <filled>
-                <prompt>The language you choose is<value expr="service"/></prompt>
-                <goto next="#mainMenu"/>
-            </filled>
         </block>
     </form>
     <form id="mainMenu">
@@ -24,8 +19,8 @@
                 If you are interested in knowledge and advice related to agriculture, please select "Agricultural Knowledge."
                 You can also subscribe to our weather alerts and updates to receive the latest information promptly. Thank you for choosing our service!
             </prompt>
-            <option next="#weatherReport">Weather Report</option>
-            <option next="#mainMenu">Repeat</option>
+            <option dtmf="1" next="#weatherReport">Weather Report</option>
+            <option dtmf="2" next="#mainMenu">Repeat</option>
         </block>
     </form>
     <form id="weatherReport">
