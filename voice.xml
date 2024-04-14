@@ -1,23 +1,124 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<vxml version="2.0" lang="en">
-<form>
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1">
 
-<field name="city">
-<prompt>Where do you want to travel to?</prompt>
-<option>Edinburgh</option>
-<option>New York</option>
-<option>London</option>
-<option>Paris</option>
-<option>Stockholm</option>
-</field>
+    <!-- 1. Welcome and Language Selection -->
+    <form id="languageSelection">
+        <field name="language">
+            <prompt>Welcome to METEO Service, your weather companion for farming success. Please select your language preference.</prompt>
+            <grammar src="builtin:dtmf/digits"/>
+            <option dtmf="1" value="English">English</option>
+            <option dtmf="2" value="French">French</option>
+            <option dtmf="3" value="Local">Local languages</option>
+            <filled>
+                <prompt>You selected <value expr="language"/>.</prompt>
+                <goto next="#mainMenu"/>
+            </filled>
+        </field>
+    </form>
 
-<field name="travellers" type="number">
-<prompt>How many are travelling to <value expr="city"/>?</prompt>
-</field>
+    <!-- 2. Main Menu -->
+    <menu id="mainMenu">
+        <prompt>Please choose from the following options.</prompt>
+        <option dtmf="1" value="weatherReport">Press 1 for Weather Report</option>
+        <option dtmf="2" value="seasonalPatterns">Press 2 for Seasonal Weather Patterns and Predictions</option>
+        <option dtmf="3" value="plantingSuggestion">Press 3 for Planting Suggestion Based on Current Weather</option>
+        <option dtmf="4" value="reportRainfall">Press 4 to Report Local Rainfall</option>
+        <option dtmf="5" value="indigenousKnowledge">Press 5 for Indigenous Knowledge on Rainfall</option>
+        <option dtmf="6" value="agriKnowledge">Press 6 for Agricultural Knowledge Today</option>
+        <option dtmf="7" value="alertSubscription">Press 7 for Alert Subscription</option>
+        <option dtmf="0" value="repeat">Press 0 to repeat these options</option>
+    </menu>
 
-<block>
-<submit next="http://localhost/handler" namelist="city travellers"/>
-</block>
+    <!-- 3. Weather Report -->
+    <form id="weatherReport">
+        <field name="weatherOption">
+            <prompt>Access detailed daily and weekly weather forecasts to support your farming decisions. Please select the type of forecast you need.</prompt>
+            <grammar src="builtin:dtmf/digits"/>
+            <option dtmf="0" value="today">Today's Weather</option>
+            <option dtmf="1" value="day1">Tomorrow's Weather</option>
+            <!-- options for days 2-7 -->
+            <option dtmf="8" value="weeklySummary">Weekly Weather Summary</option>
+            <option dtmf="9" value="return">Return to Main Menu</option>
+            <filled>
+                <if cond="weatherOption == '9'">
+                    <goto next="#mainMenu"/>
+                <else/>
+                    <prompt>You've selected <value expr="weatherOption"/>. Here's the detailed forecast...</prompt>
+                    <!-- Implement logic to provide specific day forecast -->
+                    <goto next="#mainMenu"/>
+                </if>
+            </filled>
+        </field>
+    </form>
 
-</form>
+    <!-- 4. Seasonal Weather Patterns and Predictions -->
+    <form id="seasonalPatterns">
+        <block>
+            <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
+            <goto next="#mainMenu"/>
+        </block>
+    </form>
+
+    <!-- 5. Planting Suggestion Based on Current Weather -->
+    <form id="plantingSuggestion">
+        <field name="cropType">
+            <prompt>For planting suggestions based on current and upcoming weather conditions, please select your crop.</prompt>
+            <grammar src="builtin:dtmf/digits"/>
+            <option dtmf="1" value="grains">Grains</option>
+            <option dtmf="2" value="vegetables">Vegetables</option>
+            <option dtmf="3" value="fruits">Fruits</option>
+            <option dtmf="4" value="other">Other crops</option>
+            <option dtmf="9" value="return">Return to Main Menu</option>
+            <filled>
+                <prompt>Thank you for selecting <value expr="cropType"/>. Based on the current weather conditions...</prompt>
+                <goto next="#mainMenu"/>
+            </filled>
+        </field>
+    </form>
+
+    <!-- 6. Report Local Rainfall -->
+    <form id="reportRainfall">
+        <field name="rainfallAmount" type="digits">
+            <prompt>Contribute to our weather database by reporting rainfall in your area. Please enter the amount of rainfall in your area using the keypad, followed by the # key.</prompt>
+            <filled>
+                <prompt>Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.</prompt>
+                <goto next="#mainMenu"/>
+            </filled>
+        </field>
+    </form>
+
+    <!-- 7. Indigenous Knowledge on Rainfall -->
+    <menu id="indigenousKnowledge">
+        <prompt>Explore ancient wisdom for modern farming success. Please select a topic of interest.</prompt>
+        <option dtmf="1" value="weatherPrediction">Signs from nature for weather prediction</option>
+        <option dtmf="2" value="farmingPractices">Traditional farming practices</option>
+        <option dtmf="3" value="farmerStories">Stories and lessons from local farmers</option>
+        <option dtmf="9" value="return">Return to Main Menu</option>
+    </menu>
+
+    <!-- 8. Agricultural Knowledge Today -->
+    <menu id="agriKnowledge">
+        <prompt>Access daily agricultural tips, updates, and best practices. Please select a category.</prompt>
+        <option dtmf="1" value="soilManagement">Soil management tips</option>
+        <option dtmf="2" value="waterConservation">Water conservation techniques</option>
+        <option dtmf="3" value="pestControl">Pest control</option>
+        <option dtmf="4" value="cropRotation">Crop rotation advice</option>
+        <option dtmf="9" value="return">Return to Main Menu</option>
+    </menu>
+
+    <!-- 9. Alert Subscription -->
+    <form id="alertSubscription">
+        <block>
+            <prompt>Subscribe to weather and agricultural alerts personalized to your location and crop preference.</prompt>
+            <prompt>Subscription successful. You will now receive timely alerts.</prompt>
+            <goto next="#mainMenu"/>
+        </block>
+    </form>
+
+    <!-- Error Handling and Repetition -->
+    <catch event="error">
+        <prompt>We did not receive your selection. Please try again.</prompt>
+        <reprompt/>
+    </catch>
+
 </vxml>
