@@ -21,10 +21,10 @@
                 <if cond="languageSelect == 'English' ">
                     <prompt>You select English</prompt>
                     <goto next="#mainMenu"/>
-                <elseif cond="languaglanguageSelecte == 'French'">
+                <elseif cond="languaglanguageSelecte == 'French'"/>
                     <prompt>You select French</prompt>
                     <goto next="#mainMenu"/>
-                <elseif cond="languageSelect == 'Dutch'">
+                <elseif cond="languageSelect == 'Dutch'"/>
                     <prompt>You select Dutch</prompt>
                     <goto next="#mainMenu"/>
                 </if>
@@ -81,6 +81,24 @@
         </block>
     </form>
     <form id="weatherReport">
+        <prompt>Here's the weather report...</prompt>
+    </form>
+    <form id="seasonalWeather">
+        <prompt>Here's the weather report...</prompt>
+    </form>
+    <form id="plantingSuggestion">
+        <prompt>Here's the weather report...</prompt>
+    </form>
+    <form id="localRainfall">
+        <prompt>Here's the weather report...</prompt>
+    </form>
+    <form id="indigenousKnowledge">
+        <prompt>Here's the weather report...</prompt>
+    </form>
+    <form id="agriculturalKnowledge">
+        <prompt>Here's the weather report...</prompt>
+    </form>
+    <form id="alertSubscribe">
         <prompt>Here's the weather report...</prompt>
     </form>
 </vxml>
