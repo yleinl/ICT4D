@@ -37,10 +37,11 @@
             <prompt>
                 Here, you can access various information about weather and agriculture. Please choose from the following options:
                 If you want to know the current weather conditions, please say "Weather Report."
-                If you are interested in the patterns and weather conditions for the current season, please say "Seasonal Weather."
+                If you are interested in the patterns and weather conditions for the current season, please say "Seasonal Weather", 
                 If you want to know the Planting Suggestion Based on Current Weather, please say "Planting Suggestions",
-                If you would like to know about the Indigenous Knowledge, please say "Indigenous Knowledge."
-                If you are interested in knowledge and advice related to agriculture, please say "Agricultural Knowledge."
+                If you would like to know about the Indigenous Knowledge, please say "Indigenous Knowledge", 
+                If you want to Report Local Rainfall, please say "Report Rainfall", 
+                If you are interested in knowledge and advice related to agriculture, please say "Agricultural Knowledge", 
                 If you want to leave a message to us, please say message.
                 You can also subscribe to our weather alerts, please say "Alert Subscription". Thank you for choosing our service!
                 If you want to come back to language selection, please say "Language".
@@ -62,6 +63,8 @@
             <filled>
                 <if cond="func == 'Weather Report' ">
                     <goto next="#weatherReport"/>
+                <elseif cond="func == 'Report Rainfall'"/>
+                    <goto next="#reportRainfall"/>
                 <elseif cond="func == 'Seasonal Weather'"/>
                     <goto next="#seasonalWeather"/>
                 <elseif cond="func == 'Planting Suggestions'"/>
@@ -164,6 +167,21 @@
             </filled>
         </field>
     </form>
+    
+
+    <form id="reportRainfall">
+        <field name="rainfall" type="digits">
+            <prompt>Contribute to our weather database by reporting rainfall in your area. Please enter the amount of rainfall in your area using the keypad, followed by the # key. </prompt>
+            <filled>
+                <prompt>
+                    The rainfall you report is <value expr="rainfall"/>. Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.
+                </prompt>
+                <break time="3s"/> 
+                <goto next="#mainMenu"/>
+            </filled>
+        </field>
+    </form>
+
     <form id="indigenousKnowledge">
         <field name="knowledge">
             <prompt>
