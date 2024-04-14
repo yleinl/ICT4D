@@ -59,17 +59,17 @@
             </grammar>
             <filled>
                 <if cond="func == 'Weather Report' ">
-                    <goto next="#mainMenu"/>
+                    <goto next="#weatherReport"/>
                 <elseif cond="func == 'Seasonal Weather'"/>
-                    <goto next="#mainMenu"/>
+                    <goto next="#seasonalWeather"/>
                 <elseif cond="func == 'Planting Suggestions'"/>
-                    <goto next="#mainMenu"/>
+                    <goto next="#plantingSuggestion"/>
                 <elseif cond="func == 'Indigenous Knowledge'"/>
-                    <goto next="#mainMenu"/>
+                    <goto next="#indigenousKnowledge"/>
                 <elseif cond="func == 'Agricultural Knowledge'"/>
-                    <goto next="#mainMenu"/>
+                    <goto next="#agriculturalKnowledge"/>
                 <elseif cond="func == 'Alert Subscription'"/>
-                    <goto next="#mainMenu"/>
+                    <goto next="#alertSubscribe"/>
                 <elseif cond="func == 'Language'"/>
                     <goto next="#language"/>
                 </if>
