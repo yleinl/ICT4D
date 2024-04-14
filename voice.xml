@@ -41,6 +41,7 @@
                 If you want to know the Planting Suggestion Based on Current Weather, please say "Planting Suggestions",
                 If you would like to know about the Indigenous Knowledge, please say "Indigenous Knowledge."
                 If you are interested in knowledge and advice related to agriculture, please say "Agricultural Knowledge."
+                If you want to leave a message to us, please say message.
                 You can also subscribe to our weather alerts, please say "Alert Subscription". Thank you for choosing our service!
                 If you want to come back to language selection, please say "Language".
             </prompt>
@@ -53,6 +54,7 @@
                     <item>Indigenous Knowledge</item>
                     <item>Agricultural Knowledge</item>
                     <item>Alert Subscription</item>
+                    <item>Message</item>
                     <item>Language</item>
                     </one-of>
                 </rule>
@@ -70,6 +72,8 @@
                     <goto next="#agriculturalKnowledge"/>
                 <elseif cond="func == 'Alert Subscription'"/>
                     <goto next="#alertSubscribe"/>
+                <elseif cond="func == 'Message'"/>
+                    <goto next="#message"/>
                 <elseif cond="func == 'Language'"/>
                     <goto next="#language"/>
                 </if>
@@ -115,6 +119,7 @@
                         You've selected <value expr="date"/>. Here's the detailed forecast.
                     </prompt>
                 </if>
+                <break time="3s"/> 
                 <goto next="#mainMenu"/>
             </filled>
         </field>
@@ -124,6 +129,7 @@
         <block>
             <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
             <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt>
+            <break time="3s"/> 
             <goto next="#mainMenu"/>
         </block>
     </form>
@@ -153,6 +159,7 @@
                         You've selected <value expr="planting"/>. Here's the Planting practices suggestions for the selected crop based on weather predictions.
                     </prompt>
                 </if>
+                <break time="3s"/> 
                 <goto next="#mainMenu"/>
             </filled>
         </field>
@@ -194,6 +201,7 @@
                         Narratives and anecdotes from farmers illustrating practical applications of indigenous weather prediction and its impact on agricultural decisions, including how a combination of natural signs guides their preparation for wind and seasonal changes.
                     </prompt>
                 </if>
+                <break time="3s"/> 
                 <goto next="#mainMenu"/>
             </filled>
         </field>
@@ -241,6 +249,7 @@
                         Daily tips and best practices in the selected category.
                     </prompt>
                 </if>
+                <break time="3s"/> 
                 <goto next="#mainMenu"/>
             </filled>
         </field>
@@ -282,8 +291,25 @@
                         You have subscribed a daily alert. 
                     </prompt>
                 </if>
+                <break time="3s"/> 
                 <goto next="#mainMenu"/>
             </filled>
         </field>
+    </form>
+    <form id="message">
+        <record name="msg" 
+            beep="true" 
+            maxtime="10s" 
+            finalsilence="4000ms"
+            type="audio/x-wav">
+        <prompt timeout="5s">
+            Please leave your message after it start recording. 
+        </prompt>
+        </record>
+        <block>
+            <prompt>
+                Your message is <value expr="msg"/>。
+            </prompt>
+        </block>
     </form>
 </vxml>
