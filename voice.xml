@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version="2.1">
+<form>
 
     <field name="travellers" type="number">
 
@@ -22,5 +23,5 @@
         </nomatch>       
 
     </field>
-
+</form>
 </vxml>
