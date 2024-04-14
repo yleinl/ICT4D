@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version="2.1">
     <form id="language">
-        <block>
+        <field name="inputitem">
             <prompt>
-                Welcome to METEO Service, your weather companion for farming success. Please select your language preference.>
+                Welcome to METEO Service, your weather companion for farming success. Please select your language preference.
             </prompt>
-            <option next="#mainMenu">English</option>
-            <option next="#mainMenu">French</option>
-        </block>
+            <grammar mode="voice" root="item1">
+                <rule id="item1">
+                    <one-of>
+                    <item>English</item>
+                    <item>French</item>
+                    </one-of>
+                </rule>
+            </grammar>
+            <grammar mode="dtmf" root="item2">
+                <rule id="item2">
+                    <one-of>
+                        <item>1</item>
+                        <item>2</item>
+                    </one-of>
+                </rule>
+            </grammar>
+            <filled>
+                <if cond=" inputitem == 'English'">
+                    <goto next="#mainMenu"/>
+                <else/>
+                    <goto next="#weatherReport"/>
+                </if>
+            </filled>
+        </field>
     </form>
+    
     <form id="mainMenu">
         <block>
             <prompt>
