@@ -21,7 +21,7 @@
                 <if cond="languageSelect == 'English' ">
                     <prompt>You select English</prompt>
                     <goto next="#mainMenu"/>
-                <elseif cond="languaglanguageSelecte == 'French'"/>
+                <elseif cond="languageSelect == 'French'"/>
                     <prompt>You select French</prompt>
                     <goto next="#mainMenu"/>
                 <elseif cond="languageSelect == 'Dutch'"/>
