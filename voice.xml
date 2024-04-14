@@ -53,20 +53,28 @@
                     <item>Planting Suggestions</item>
                     <item>Local Rainfall</item>
                     <item>Indigenous Knowledge</item>
-                    <item>Agricultural Knowledge Today</item>
+                    <item>Agricultural Knowledge</item>
                     <item>Alert Subscription</item>
                     <item>Language</item>
                     </one-of>
                 </rule>
             </grammar>
             <filled>
-                <if cond="func == 'English' ">
+                <if cond="func == 'Weather Report' ">
                     <goto next="#mainMenu"/>
-                <elseif cond="func == 'French'">
+                <elseif cond="func == 'Seasonal Weather'"/>
                     <goto next="#mainMenu"/>
-                <elseif cond="func == 'Dutch'">
+                <elseif cond="func == 'Planting Suggestions'"/>
                     <goto next="#mainMenu"/>
-                <else/>
+                <elseif cond="func == 'Local Rainfall'"/>
+                    <goto next="#mainMenu"/>
+                <elseif cond="func == 'Indigenous Knowledge'"/>
+                    <goto next="#mainMenu"/>
+                <elseif cond="func == 'Agricultural Knowledge'"/>
+                    <goto next="#mainMenu"/>
+                <elseif cond="func == 'Alert Subscription'"/>
+                    <goto next="#mainMenu"/>
+                <elseif cond="func == 'Language'"/>
                     <goto next="#language"/>
                 </if>
             </filled>
