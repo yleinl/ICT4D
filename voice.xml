@@ -21,15 +21,5 @@
             If you would like to know about the rainfall in your area, please select "Local Rainfall."
             If you are interested in knowledge and advice related to agriculture, please select "Agricultural Knowledge."
             You can also subscribe to our weather alerts and updates to receive the latest information promptly. Thank you for choosing our service!</prompt>
-            <!-- <block> -->
-                <!-- <choice next="#weatherReport">Weather Report</choice> -->
-                <!-- <choice next="#seasonalWeather">Seasonal Weather</choice>
-                <choice next="#plantingSuggestions">Current Weather</choice>
-                <choice next="#reportRainfall" >Local Rainfall</choice>
-                <choice next="#indigenousKnowledge">Indigenous Knowledge</choice>
-                <choice next="#agriculturalKnowledge">Agricultural Knowledge</choice>
-                <choice next="#subscribeAlerts">Subcribe</choice> -->
-                <!-- <choice next="#mainMenu">Repeat</choice> -->
-            <!-- </block> -->
         </form>
 </vxml>
