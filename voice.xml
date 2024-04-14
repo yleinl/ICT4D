@@ -15,13 +15,10 @@
         </field>
     </form>
     <form id="mainMenu">
+      <block>
         <prompt>
             Here, you can access various information about weather and agriculture. Please choose from the following options:
-            If you want to know the current weather conditions, please select "Weather Report."
-            If you are interested in the weather conditions for the current season, please select "Seasonal Weather."
-            If you would like to know about the rainfall in your area, please select "Local Rainfall."
-            If you are interested in knowledge and advice related to agriculture, please select "Agricultural Knowledge."
-            You can also subscribe to our weather alerts and updates to receive the latest information promptly. Thank you for choosing our service!
         </prompt>
+      </block>
     </form>
 </vxml>
