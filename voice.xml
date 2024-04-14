@@ -118,15 +118,22 @@
                     <prompt>
                         You've selected <value expr="date"/>. Here's the detailed forecast.
                     </prompt>
+                </if>
                 <goto next="#mainMenu"/>
             </filled>
         </field>
     </form>
+
     <form id="seasonalWeather">
-        <prompt>Here's the weather report...</prompt>
+        <block>
+            <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
+            <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt>
+            <goto next="#mainMenu"/>
+        </block>
     </form>
+
     <form id="plantingSuggestion">
-        <prompt>Here's the weather report...</prompt>
+        <prompt>For planting suggestions based on current and upcoming weather conditions, please select your crop.</prompt>
     </form>
     <form id="localRainfall">
         <prompt>Here's the weather report...</prompt>
