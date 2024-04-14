@@ -32,12 +32,12 @@
                 <choice next="#mainMenu">Repeat</choice>
             </block>
         </form>
-
-    <form id="weatherReport">
-        <block>
-        <prompt>Here's the weather report...</prompt>
-        <!-- Weather report content goes here -->
-        <goto next="#mainMenu"/>
-        </block>
-    </form>
+<!-- 
+        <form id="weatherReport">
+            <block>
+            <prompt>Here's the weather report...</prompt>
+            <!-- Weather report content goes here -->
+            <goto next="#mainMenu"/>
+            </block>
+        </form> -->
 </vxml>
