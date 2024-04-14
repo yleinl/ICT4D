@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version="2.1">
 
-    <form id="welcomeForm">
-    <block>
-      <prompt>Welcome to METEO Service, your weather companion for farming success. Please select your language preference.</prompt>
-    </block>
-    <field name="languageSelection">
-      <prompt>
-        Press 1 for English.
-        <break time="200ms"/>
-        Press 2 for French.
-        <break time="200ms"/>
-        Press 3 for local languages.
-      </prompt>
-      <grammar mode="dtmf" root="languageOptions.grxml"/>
-      <filled>
-        <if cond="languageSelection == '1'">
-          <goto next="#welcomeForm"/>
-        <elseif cond="languageSelection == '2'"/>
-          <goto next="#welcomeForm"/>
-        <elseif cond="languageSelection == '3'"/>
-          <goto next="#welcomeForm"/>
-        <else/>
-          <reprompt/>
-        </if>
-      </filled>
+    <field name="travellers" type="number">
+
+        <prompt count="1">
+        How many are travelling to <value expr="city"/>? 
+        </prompt>
+
+        <prompt count="2">
+        Please tell me the number of people travelling.
+        </prompt>
+
+        <prompt count="3">
+        To book a flight, you must tell me the number
+        of people travelling to <value expr="city"/>.
+        </prompt>
+
+        <nomatch>
+        <prompt>Please say just a number.</prompt>
+        <reprompt/>
+        </nomatch>       
+
     </field>
-  </form>
 
 </vxml>
