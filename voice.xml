@@ -29,7 +29,7 @@
                 <choice next="#indigenousKnowledge">Indigenous Knowledge</choice>
                 <choice next="#agriculturalKnowledge">Agricultural Knowledge</choice>
                 <choice next="#subscribeAlerts">Subcribe</choice> -->
-                <choice next="#mainMenu">Repeat</choice>
+                <!-- <choice next="#mainMenu">Repeat</choice> -->
             <!-- </block> -->
         </form>
 </vxml>
