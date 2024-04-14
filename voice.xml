@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version="2.1">
     <form id="language">
-      <block>
-        <prompt>
-            Welcome to METEO Service, your weather companion for farming success. Please select your language preference.>
-        </prompt>
-        <goto next="#mainMenu"/>
-      </block>
+        <block>
+            <property name="inputmode" value="dtmf"/>
+            <prompt>
+                Welcome to METEO Service, your weather companion for farming success. Please select your language preference.>
+            </prompt>
+            <option dtmf="1" value="English">English</option>
+            <option dtmf="2" value="French">French</option>
+            <filled>
+                <prompt>The language you choose is<value expr="service"/></prompt>
+                <goto next="#mainMenu"/>
+            </filled>
+        </block>
     </form>
     <form id="mainMenu">
-      <block>
-        <prompt>
-            Here, you can access various information about weather and agriculture. Please choose from the following options:
-        </prompt>
-      </block>
+        <block>
+            <prompt>
+                Here, you can access various information about weather and agriculture. Please choose from the following options:
+                If you want to know the current weather conditions, please select "Weather Report."
+                If you are interested in the weather conditions for the current season, please select "Seasonal Weather."
+                If you would like to know about the rainfall in your area, please select "Local Rainfall."
+                If you are interested in knowledge and advice related to agriculture, please select "Agricultural Knowledge."
+                You can also subscribe to our weather alerts and updates to receive the latest information promptly. Thank you for choosing our service!
+            </prompt>
+            <choice next="#weatherReport">Weather Report</choice>
+            <!-- <choice next="#seasonalWeather">Seasonal Weather</choice>
+            <choice next="#plantingSuggestions">Current Weather</choice>
+            <choice next="#reportRainfall" >Local Rainfall</choice>
+            <choice next="#indigenousKnowledge">Indigenous Knowledge</choice>
+            <choice next="#agriculturalKnowledge">Agricultural Knowledge</choice>
+            <choice next="#subscribeAlerts">Subcribe</choice> -->
+            <choice next="#mainMenu">Repeat</choice>
+        </block>
+    </form>
+    <form id="weatherReport">
+        <block>
+            <prompt>Here's the weather report...</prompt>
+            <goto next="#mainMenu"/>
+        </block>
     </form>
 </vxml>
