@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version="2.1">
     <form id="language">
-        <field name="inputitem">
+        <field name="languageSelect">
+            <catch event="nomatch">
+                <prompt>Sorry I cannot understand, please try again</prompt>
+            </catch>
             <prompt>
                 Welcome to METEO Service, your weather companion for farming success. Please select your language preference.
             </prompt>
@@ -10,45 +13,66 @@
                     <one-of>
                     <item>English</item>
                     <item>French</item>
-                    </one-of>
-                </rule>
-            </grammar>
-            <grammar mode="dtmf" root="item2">
-                <rule id="item2">
-                    <one-of>
-                        <item>1</item>
-                        <item>2</item>
+                    <item>Dutch</item>
                     </one-of>
                 </rule>
             </grammar>
             <filled>
-                <if cond="inputitem == 'English'">
+                <if cond="languageSelect == 'English' ">
+                    <prompt>You select English</prompt>
                     <goto next="#mainMenu"/>
-                <else/>
-                    <goto next="#language"/>
+                <elseif cond="languaglanguageSelecte == 'French'">
+                    <prompt>You select French</prompt>
+                    <goto next="#mainMenu"/>
+                <elseif cond="languageSelect == 'Dutch'">
+                    <prompt>You select Dutch</prompt>
+                    <goto next="#mainMenu"/>
                 </if>
             </filled>
         </field>
     </form>
     
     <form id="mainMenu">
-        <block>
+        <field name="func">
             <prompt>
                 Here, you can access various information about weather and agriculture. Please choose from the following options:
-                If you want to know the current weather conditions, please select "Weather Report."
-                If you are interested in the weather conditions for the current season, please select "Seasonal Weather."
-                If you would like to know about the rainfall in your area, please select "Local Rainfall."
-                If you are interested in knowledge and advice related to agriculture, please select "Agricultural Knowledge."
-                You can also subscribe to our weather alerts and updates to receive the latest information promptly. Thank you for choosing our service!
+                If you want to know the current weather conditions, please say "Weather Report."
+                If you are interested in the patterns and weather conditions for the current season, please say "Seasonal Weather."
+                If you want to know the Planting Suggestion Based on Current Weather, please say "Planting Suggestions",
+                If you would like to know about the rainfall in your area, please say "Local Rainfall."
+                If you would like to know about the Indigenous Knowledge, please say "Indigenous Knowledge."
+                If you are interested in knowledge and advice related to agriculture, please say "Agricultural Knowledge."
+                You can also subscribe to our weather alerts, please say "Alert Subscription". Thank you for choosing our service!
+                If you want to come back to language selection, please say "Language".
             </prompt>
-            <option next="#weatherReport">Weather Report</option>
-            <option next="#mainMenu">Repeat</option>
+            <grammar mode="voice" root="item2">
+                <rule id="item2">
+                    <one-of>
+                    <item>Weather Report</item>
+                    <item>Seasonal Weather</item>
+                    <item>Planting Suggestions</item>
+                    <item>Local Rainfall</item>
+                    <item>Indigenous Knowledge</item>
+                    <item>Agricultural Knowledge Today</item>
+                    <item>Alert Subscription</item>
+                    <item>Language</item>
+                    </one-of>
+                </rule>
+            </grammar>
+            <filled>
+                <if cond="func == 'English' ">
+                    <goto next="#mainMenu"/>
+                <elseif cond="func == 'French'">
+                    <goto next="#mainMenu"/>
+                <elseif cond="func == 'Dutch'">
+                    <goto next="#mainMenu"/>
+                <else/>
+                    <goto next="#language"/>
+                </if>
+            </filled>
         </block>
     </form>
     <form id="weatherReport">
-        <block>
-            <prompt>Here's the weather report...</prompt>
-            <goto next="#mainMenu"/>
-        </block>
+        <prompt>Here's the weather report...</prompt>
     </form>
 </vxml>
