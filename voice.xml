@@ -22,10 +22,10 @@
                 </rule>
             </grammar>
             <filled>
-                <if cond=" inputitem == 'English'">
+                <if cond="inputitem == 'English'">
                     <goto next="#mainMenu"/>
                 <else/>
-                    <goto next="#weatherReport"/>
+                    <goto next="#language"/>
                 </if>
             </filled>
         </field>
