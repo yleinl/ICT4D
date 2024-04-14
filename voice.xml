@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version="2.1">
 <form>
-
-    <field name="travellers" type="number">
-
-        <prompt count="1">
-        How many are travelling to <value expr="city"/>? 
-        </prompt>
-
-        <prompt count="2">
-        Please tell me the number of people travelling.
-        </prompt>
-
-        <prompt count="3">
-        To book a flight, you must tell me the number
-        of people travelling to <value expr="city"/>.
-        </prompt>
-
-        <nomatch>
-        <prompt>Please say just a number.</prompt>
-        <reprompt/>
-        </nomatch>       
-
-    </field>
+    <property name="inputmode" value="dtmf"/>
+     <field name="service">
+      <prompt>
+        Welcome to METEO Service, your weather companion for farming success. Please select your language preference.>
+      </prompt>
+     <option dtmf="1" value="English">English</option>
+     <option dtmf="2" value="French">French</option>
+     <filled>
+       <prompt>The language you choose is French<value expr="service"/>。</prompt>
+     </filled>
+   </field>
 </form>
 </vxml>
