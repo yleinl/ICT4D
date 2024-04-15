@@ -11,7 +11,7 @@ skinparam class {
 }
 
 skinparam package {
-  BackgroundColor PaleGreen
+  BackgroundColor #dae8fc
   BorderColor Black
 }
 
@@ -68,14 +68,14 @@ package "Data Models" <<Data>> {
     -amount: double
     +submitRainfallData()
   }
-
+  
   class IndigenousKnowledge {
     -signsFromNature: String[]
     -farmingPractices: String[]
     -farmerStories: String[]
     +getIndigenousInsights()
   }
-
+  
   class AgriculturalKnowledgeToday {
     -soilManagementTips: String[]
     -waterConservationTechniques: String[]
@@ -83,13 +83,20 @@ package "Data Models" <<Data>> {
     -cropRotationAdvice: String[]
     +getDailyTips()
   }
-
+  
   class AlertSubscription {
     -location: String
     -cropsOfInterest: String[]
     -alertTypes: String[]
     +subscribeToAlerts()
   }
+
+  WeatherReport -right- SeasonalPrediction
+  SeasonalPrediction -right- PlantingSuggestion
+  PlantingSuggestion -right- RainfallReport
+  RainfallReport -right- IndigenousKnowledge
+  IndigenousKnowledge -right- AgriculturalKnowledgeToday
+  AgriculturalKnowledgeToday -right- AlertSubscription
 }
 
 class ErrorHandling {
@@ -97,7 +104,7 @@ class ErrorHandling {
   -errorMessage: String
   +handleError()
 }
-note right of ErrorHandling: Handles any invalid inputs\nor system errors
+note bottom of ErrorHandling: Handles any invalid inputs\nor system errors
 
 User -right-> METEOServiceSystem : interacts with >
 METEOServiceSystem "1" -down-|> "Data Models"
