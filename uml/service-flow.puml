@@ -1,0 +1,65 @@
+@startuml
+actor Farmer as "User"
+participant "METEO Service System" as System
+
+== Welcome and Language Selection ==
+Farmer -> System : Start Call
+System -> Farmer : Welcome Prompt (Select Language)
+Farmer -> System : Language Selection
+
+== Main Menu ==
+System -> Farmer : Main Menu Prompt (Options 1-7, 0)
+Farmer -> System : Select Option
+
+alt Weather Report
+    Farmer -> System : Option 1 Selected
+    System -> Farmer : Weather Report Prompt
+    Farmer -> System : Select Forecast Type (Today, 1-7 days, Weekly Summary)
+    System -> Farmer : Provide Weather Details
+    Farmer -> System : Special Requests (1-3)
+    System -> Farmer : Provide Special Weather Insights
+else Seasonal Weather Patterns
+    Farmer -> System : Option 2 Selected
+    System -> Farmer : Provide Seasonal Weather Patterns
+else Planting Suggestion
+    Farmer -> System : Option 3 Selected
+    System -> Farmer : Planting Suggestion Prompt (Options 1-4)
+    Farmer -> System : Select Crop Type
+    System -> Farmer : Provide Planting Suggestions
+else Report Local Rainfall
+    Farmer -> System : Option 4 Selected
+    System -> Farmer : Rainfall Reporting Instructions
+    Farmer -> System : Enter Rainfall Data
+    System -> Farmer : Confirm Rainfall Data Received
+else Indigenous Knowledge
+    Farmer -> System : Option 5 Selected
+    System -> Farmer : Indigenous Knowledge Prompt (Options 1-3)
+    Farmer -> System : Select Topic
+    System -> Farmer : Provide Indigenous Knowledge Information
+else Agricultural Knowledge Today
+    Farmer -> System : Option 6 Selected
+    System -> Farmer : Agricultural Knowledge Prompt (Options 1-4)
+    Farmer -> System : Select Category
+    System -> Farmer : Provide Agricultural Knowledge Tips
+else Alert Subscription
+    Farmer -> System : Option 7 Selected
+    System -> Farmer : Subscription Instructions
+    Farmer -> System : Set Up Alerts (Location, Crops, Types)
+    System -> Farmer : Confirm Subscription
+else Repeat Options
+    Farmer -> System : Press 0
+    System -> Farmer : Repeat Main Menu Prompt
+end
+
+System -> Farmer : Return to Main Menu
+
+== Error Handling ==
+alt Invalid Input
+    Farmer -> System : Invalid/No Input
+    System -> Farmer : Error Prompt (Try Again)
+else Return to Main Menu
+    Farmer -> System : Press 9
+    System -> Farmer : Main Menu Prompt
+end
+
+@enduml

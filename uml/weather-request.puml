@@ -1,0 +1,20 @@
+@startuml
+start
+partition "User Interaction" {
+  :Receive Call;
+  :Voice Prompt\n"Please choose from\nthe following options";
+  -> [Weather Report] Option 1;
+}
+
+partition "Weather Report Handling" {
+  :Provide Weather Options;
+  if (Select Daily/Weekly Forecast) then (Daily)
+    :Provide Daily Forecast;
+  else (Weekly)
+    :Provide Weekly Summary;
+  endif
+  :Return to Main Menu;
+}
+
+stop
+@enduml

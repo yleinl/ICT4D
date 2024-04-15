@@ -1,0 +1,11 @@
+@startuml
+actor User as "Farmer"
+participant "METEO Service\nSystem" as System
+
+User -> System : Start Call
+System -> User : Voice Prompt\n("Welcome to METEO Service, select language")
+User -> System : Select Language (1 for English, 2 for French, 3 for local languages)
+System -> User : Confirmation of Language Selection
+
+note right of System : User navigates to\nthe Main Menu after\nlanguage selection
+@enduml
