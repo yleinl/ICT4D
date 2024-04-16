@@ -6,7 +6,7 @@
                 <prompt>Sorry I cannot understand, please try again</prompt>
             </catch>
             <prompt>
-                Welcome to METEO Service, your weather companion for farming success. Please select your language preference.
+                Welcome to VoxMeteo Sahel, your weather companion for farming success. Please select your language preference.
             </prompt>
             <grammar mode="voice" root="item1">
                 <rule id="item1">
