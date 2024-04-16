@@ -1,6 +1,6 @@
 @startuml
 actor User as "Farmer"
-participant "METEO Service\nSystem" as System
+participant "VoxMeteo Sahel\nSystem" as System
 
 User -> System : Start Call
 System -> User : Voice Prompt\n("Welcome to METEO Service, select language")
