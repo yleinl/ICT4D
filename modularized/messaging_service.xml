@@ -13,7 +13,7 @@
         <block>
             <prompt>Your message is <value expr="msg"/>. Message successfully.</prompt>
             <break time="3s"/> 
-            <goto next="../main_and_language.vxml#mainMenu"/>
+            <goto next="../main_and_language.xml#mainMenu"/>
         </block>
     </form>
 </vxml>

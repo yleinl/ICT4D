@@ -19,11 +19,11 @@
             <filled>
                 <if cond="languageSelect == 'English'">
                     <prompt>You selected English</prompt>
-                    <goto next="main_and_language.vxml#mainMenu"/>
+                    <goto next="main_and_language.xml#mainMenu"/>
                 </if>
                 <elseif cond="languageSelect == 'Dutch'"/>
                     <prompt>You selected Dutch</prompt>
-                    <goto next="main_and_language.vxml#mainMenu"/>
+                    <goto next="main_and_language.xml#mainMenu"/>
                 </elseif>
             </filled>
         </field>
@@ -60,22 +60,22 @@
             </grammar>
             <filled>
                 <if cond="func == 'Weather Report'">
-                    <goto next="weather_reports.vxml#weatherReport"/>
+                    <goto next="weather_reports.xml#weatherReport"/>
                 </if>
                 <elseif cond="func == 'Seasonal Weather'"/>
-                    <goto next="weather_reports.vxml#seasonalWeather"/>
+                    <goto next="weather_reports.xml#seasonalWeather"/>
                 <elseif cond="func == 'Planting Suggestions'"/>
-                    <goto next="agricultural_services.vxml#plantingSuggestion"/>
+                    <goto next="agricultural_services.xml#plantingSuggestion"/>
                 <elseif cond="func == 'Report Rainfall'"/>
-                    <goto next="agricultural_services.vxml#reportRainfall"/>
+                    <goto next="agricultural_services.xml#reportRainfall"/>
                 <elseif cond="func == 'Indigenous Knowledge'"/>
-                    <goto next="agricultural_services.vxml#indigenousKnowledge"/>
+                    <goto next="agricultural_services.xml#indigenousKnowledge"/>
                 <elseif cond="func == 'Agricultural Knowledge'"/>
-                    <goto next="agricultural_services.vxml#agriculturalKnowledge"/>
+                    <goto next="agricultural_services.xml#agriculturalKnowledge"/>
                 <elseif cond="func == 'Alert Subscription'"/>
-                    <goto next="subscription_services.vxml#alertSubscribe"/>
+                    <goto next="subscription_services.xml#alertSubscribe"/>
                 <elseif cond="func == 'Message'"/>
-                    <goto next="messaging_service.vxml#message"/>
+                    <goto next="messaging_service.xml#message"/>
                 <elseif cond="func == 'Language'"/>
                     <goto next="#language"/>
                 </if>

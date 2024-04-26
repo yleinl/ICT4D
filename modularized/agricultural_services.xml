@@ -16,13 +16,13 @@
             <filled>
                 <if cond="planting == 'return'">
                     <prompt>You will return to the main menu.</prompt>
-                    <goto next="../main_and_language.vxml#mainMenu"/>
+                    <goto next="../main_and_language.xml#mainMenu"/>
                 </if>
                 <else/>
                     <prompt>You've selected <value expr="planting"/>. Here are the planting practices suggestions for the selected crop based on weather predictions.</prompt>
                 </if>
                 <break time="3s"/> 
-                <goto next="../main_and_language.vxml#mainMenu"/>
+                <goto next="../main_and_language.xml#mainMenu"/>
             </filled>
         </field>
     </form>
@@ -33,7 +33,7 @@
             <filled>
                 <prompt>The rainfall you report is <value expr="rainfall"/>. Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.</prompt>
                 <break time="3s"/> 
-                <goto next="../main_and_language.vxml#mainMenu"/>
+                <goto next="../main_and_language.xml#mainMenu"/>
             </filled>
         </field>
     </form>
@@ -60,7 +60,7 @@
             <filled>
                 <if cond="knowledge == 'return'">
                     <prompt>You will return to the main menu.</prompt>
-                    <goto next="../main_and_language.vxml#mainMenu"/>
+                    <goto next="../main_and_language.xml#mainMenu"/>
                 </if>
                 <elseif cond="knowledge == 'weather prediction'"/>
                     <prompt>Detailed examples of how specific birds' activities or the appearance of certain plants are traditionally interpreted as signs predicting the start of the rainy season or indicating the expected season's quality.</prompt>
@@ -70,7 +70,7 @@
                     <prompt>Narratives and anecdotes from farmers illustrating practical applications of indigenous weather prediction and its impact on agricultural decisions, including how a combination of natural signs guides their preparation for wind and seasonal changes.</prompt>
                 </if>
                 <break time="3s"/> 
-                <goto next="../main_and_language.vxml#mainMenu"/>
+                <goto next="../main_and_language.xml#mainMenu"/>
             </filled>
         </field>
     </form>
@@ -99,7 +99,7 @@
             <filled>
                 <if cond="agknowledge == 'return'">
                     <prompt>You will return to the main menu.</prompt>
-                    <goto next="../main_and_language.vxml#mainMenu"/>
+                    <goto next="../main_and_language.xml#mainMenu"/>
                 </if>
                 <elseif cond="agknowledge == 'soil'"/>
                     <prompt>Daily tips and best practices in the selected category.</prompt>
@@ -111,7 +111,7 @@
                     <prompt>Daily tips and best practices in the selected category.</prompt>
                 </if>
                 <break time="3s"/> 
-                <goto next="../main_and_language.vxml#mainMenu"/>
+                <goto next="../main_and_language.xml#mainMenu"/>
             </filled>
         </field>
     </form>

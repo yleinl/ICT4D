@@ -22,7 +22,7 @@
             <filled>
                 <if cond="subscrib == 'return'">
                     <prompt>You will return to the main menu.</prompt>
-                    <goto next="../main_and_language.vxml#mainMenu"/>
+                    <goto next="../main_and_language.xml#mainMenu"/>
                 </if>
                 <elseif cond="subscrib == 'week'"/>
                     <prompt>You have subscribed to a weekly alert.</prompt>
@@ -32,7 +32,7 @@
                     <prompt>You have subscribed to a daily alert.</prompt>
                 </if>
                 <break time="3s"/> 
-                <goto next="../main_and_language.vxml#mainMenu"/>
+                <goto next="../main_and_language.xml#mainMenu"/>
             </filled>
         </field>
     </form>
