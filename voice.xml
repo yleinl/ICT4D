@@ -85,7 +85,7 @@
     <form id="mainMenuDutch">
         <field name="func">
             <prompt>
-                <audio src="https://raw.githubusercontent.com/yleinl/ICT4D/test/mainmenu.aac"/>
+                <audio src="https://raw.githubusercontent.com/yleinl/ICT4D/test/mainmenu.wav"/>
             </prompt>
             <grammar mode="voice" root="item2">
                 <rule id="item2">
