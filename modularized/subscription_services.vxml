@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1">
+    <form id="alertSubscribe">
+        <field name="subscrib">
+            <prompt>
+                Subscribe to weather and agricultural alerts personalized to your location and crop preference.
+                You can say week for weekly Subscription.
+                You can say day for daily subscription.
+                You can say cancel for cancel the subscription.
+                You can say return to go back the main menu. 
+            </prompt>
+            <grammar mode="voice" root="item6">
+                <rule id="item6">
+                    <one-of>
+                        <item>day</item>
+                        <item>week</item>
+                        <item>cancel</item>
+                        <item>Return</item>
+                    </one-of>
+                </rule>
+            </grammar>
+            <filled>
+                <if cond="subscrib == 'return'">
+                    <prompt>You will return to the main menu.</prompt>
+                    <goto next="../main_and_language.vxml#mainMenu"/>
+                </if>
+                <elseif cond="subscrib == 'week'"/>
+                    <prompt>You have subscribed to a weekly alert.</prompt>
+                <elseif cond="subscrib == 'cancel'"/>
+                    <prompt>You have canceled the alert subscription.</prompt>
+                <elseif cond="subscrib == 'day'"/>
+                    <prompt>You have subscribed to a daily alert.</prompt>
+                </if>
+                <break time="3s"/> 
+                <goto next="../main_and_language.vxml#mainMenu"/>
+            </filled>
+        </field>
+    </form>
+</vxml>

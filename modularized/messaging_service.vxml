@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1">
+    <form id="message">
+        <record name="msg" 
+            beep="true" 
+            maxtime="10s" 
+            finalsilence="4000ms"
+            type="audio/x-wav">
+            <prompt timeout="5s">
+                Please leave your message after it starts recording. 
+            </prompt>
+        </record>
+        <block>
+            <prompt>Your message is <value expr="msg"/>. Message successfully.</prompt>
+            <break time="3s"/> 
+            <goto next="../main_and_language.vxml#mainMenu"/>
+        </block>
+    </form>
+</vxml>
