@@ -155,17 +155,19 @@
             </grammar>
             <filled>
                 <if cond="date == 'return' ">
-                    <prompt>
-                        You will return to the main menu.
-                    </prompt>
-                <elseif cond = "date=='Weak'"/>
-                    <prompt>
-                        Here's the weekly weather summary, focusing on the agricultural needs for the rainy season.
-                    </prompt>
+                    <prompt>You will return to the main menu.</prompt>
+                <elseif cond="date == 'Week'"/>
+                    <subdialog src="http://117.72.46.192:8000/weather?date=Week" namelist="date">
+                        <filled>
+                            <prompt>Here's the weekly weather summary: <value expr="subdialog_forecast"/></prompt>
+                        </filled>
+                    </subdialog>
                 <else/>
-                    <prompt>
-                        You've selected <value expr="date"/>. Here's the detailed forecast.
-                    </prompt>
+                    <subdialog expr="'http://117.72.46.192:8000/weather?date=' + date" namelist="date">
+                        <filled>
+                            <prompt>You've selected <value expr="date"/>. Here's the detailed forecast: <value expr="subdialog_forecast"/></prompt>
+                        </filled>
+                    </subdialog>
                 </if>
                 <break time="3s"/> 
                 <goto next="#mainMenu"/>
