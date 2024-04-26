@@ -21,12 +21,9 @@
                 <if cond="languageSelect == 'English' ">
                     <prompt>You select English</prompt>
                     <goto next="#mainMenu"/>
-                <elseif cond="languageSelect == 'French'"/>
-                    <prompt>You select French</prompt>
-                    <goto next="#mainMenu"/>
                 <elseif cond="languageSelect == 'Dutch'"/>
                     <prompt>You select Dutch</prompt>
-                    <goto next="#mainMenu"/>
+                    <goto next="#mainMenuDutch"/>
                 </if>
             </filled>
         </field>
@@ -84,6 +81,53 @@
             </filled>
         </field>
     </form>
+
+    <form id="mainMenuDutch">
+        <field name="func">
+            <prompt>
+                <audio src="https://raw.githubusercontent.com/yleinl/ICT4D/test/mainmenu.aac"/>
+            </prompt>
+            <grammar mode="voice" root="item2">
+                <rule id="item2">
+                    <one-of>
+                        <item>Weerrapport</item>
+                        <item>Seizoensweer</item>
+                        <item>Plantadvies</item>
+                        <item>Regenval Rapporteren</item>
+                        <item>Inheemse Kennis</item>
+                        <item>Landbouwkennis</item>
+                        <item>Abonnement op Waarschuwingen</item>
+                        <item>Bericht</item>
+                        <item>Taal</item>
+                    </one-of>
+                </rule>
+            </grammar>
+            <filled>
+                <if cond="func == 'Weerrapport' ">
+                    <goto next="#weatherReport"/>
+                <elseif cond="func == 'Regenval Rapporteren'"/>
+                    <goto next="#reportRainfall"/>
+                <elseif cond="func == 'Seizoensweer'"/>
+                    <goto next="#seasonalWeather"/>
+                <elseif cond="func == 'Plantadvies'"/>
+                    <goto next="#plantingSuggestion"/>
+                <elseif cond="func == 'Inheemse Kennis'"/>
+                    <goto next="#indigenousKnowledge"/>
+                <elseif cond="func == 'Landbouwkennis'"/>
+                    <goto next="#agriculturalKnowledge"/>
+                <elseif cond="func == 'Abonnement op Waarschuwingen'"/>
+                    <goto next="#alertSubscribe"/>
+                <elseif cond="func == 'Bericht'"/>
+                    <goto next="#message"/>
+                <elseif cond="func == 'Taal'"/>
+                    <goto next="#language"/>
+                </if>
+            </filled>
+        </field>
+    </form>
+
+
+    
     <form id="weatherReport">
         <field name="date">
             <prompt>
