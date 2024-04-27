@@ -20,5 +20,6 @@ from weather.views import get_weather
 
 
 urlpatterns = [
-    path('weather/', get_weather),
+    # path('weather/', get_weather),
+    path('get_weather/', get_weather, name='get_weather'),
 ]
