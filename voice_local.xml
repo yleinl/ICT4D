@@ -350,42 +350,42 @@
         </field>
     </form>
 
-<!--    <form id="alertSubscribe">-->
-<!--        <field name="subscrib">-->
-<!--            <prompt>-->
-<!--                Subscribe to weather and agricultural alerts personalized to your location and crop preference.-->
-<!--                You can say week for weekly Subscription.-->
-<!--                You can say day for daily subscription.-->
-<!--                You can say cancel for cancel the subscription.-->
-<!--                You can say return to go back the main menu.-->
-<!--            </prompt>-->
-<!--            <grammar mode="voice" root="item6">-->
-<!--                <rule id="item6">-->
-<!--                    <one-of>-->
-<!--                        <item>day</item>-->
-<!--                        <item>week</item>-->
-<!--                        <item>cancel</item>-->
-<!--                        <item>Return</item>-->
-<!--                    </one-of>-->
-<!--                </rule>-->
-<!--            </grammar>-->
-<!--            <filled>-->
-<!--                <if cond="subscrib == 'return' ">-->
-<!--                    <prompt>-->
-<!--                        You will return to the main menu.-->
-<!--                    </prompt>-->
-<!--                <elseif cond="subscrib == 'week'"/>-->
-<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=week" method="post"/>-->
-<!--                <elseif cond="subscrib == 'day'"/>-->
-<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=day" method="post"/>-->
-<!--                <elseif cond="subscrib == 'cancel'"/>-->
-<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=cancel" method="post"/>-->
-<!--                </if>-->
-<!--                <break time="3s"/>-->
-<!--                <goto next="#mainMenu"/>-->
-<!--            </filled>-->
-<!--        </field>-->
-<!--    </form>-->
+    <form id="alertSubscribe">
+        <field name="subscrib">
+            <prompt>
+                Subscribe to weather and agricultural alerts personalized to your location and crop preference.
+                You can say week for weekly Subscription.
+                You can say day for daily subscription.
+                You can say cancel for cancel the subscription.
+                You can say return to go back the main menu.
+            </prompt>
+            <grammar mode="voice" root="item6">
+                <rule id="item6">
+                    <one-of>
+                        <item>day</item>
+                        <item>week</item>
+                        <item>cancel</item>
+                        <item>Return</item>
+                    </one-of>
+                </rule>
+            </grammar>
+            <filled>
+                <if cond="subscrib == 'return' ">
+                    <prompt>
+                        You will return to the main menu.
+                    </prompt>
+                <elseif cond="subscrib == 'week'"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=week" method="post"/>
+                <elseif cond="subscrib == 'day'"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=day" method="post"/>
+                <elseif cond="subscrib == 'cancel'"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=cancel" method="post"/>
+                </if>
+                <break time="3s"/>
+                <goto next="#mainMenu"/>
+            </filled>
+        </field>
+    </form>
 
 <!--    <form id="message">-->
 <!--        <record name="msg"-->
