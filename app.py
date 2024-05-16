@@ -39,6 +39,13 @@ seasonal_weather_data = [
     {"outlook": "Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities. Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season."}
 ]
 
+report_rainfall_data = [
+    {"rainfall": "50 mm"},
+    {"rainfall": "100 mm"},
+    {"rainfall": "25 mm"},
+    {"rainfall": "75 mm"}
+]
+
 planting_suggestion_data = [
     {"crop": "Fruit", "suggestion": "Plant fruit crops during the appropriate season."},
     {"crop": "Grains", "suggestion": "Sow grains when weather conditions are favorable."},
@@ -83,12 +90,11 @@ def get_planting_suggestion():
 @app.route('/reportRainfall', methods=['POST'])
 def report_rainfall():
     rainfall = request.form.get('rainfall')
-    # Here you can handle the reported rainfall data as needed
     return jsonify({"message": f"Rainfall reported: {rainfall}"})
 
 @app.route('/indigenousKnowledge', methods=['GET'])
 def get_indigenous_knowledge():
-    topic = request.args.get('topic')
+    topic = request.args.get('knowledge')
     info = next((item['info'] for item in indigenous_knowledge_data if item['topic'] == topic), "No information available for this topic.")
     return jsonify({"info": info})
 
@@ -107,8 +113,8 @@ def manage_alert_subscription():
 @app.route('/message', methods=['POST'])
 def leave_message():
     message = request.form.get('message')
-    # Here you can handle the received message data as needed
     return jsonify({"message": f"Your message: {message}"})
 
 if __name__ == '__main__':
     app.run(debug=True)
+    # Here we can change the address flask server running

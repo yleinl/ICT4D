@@ -125,9 +125,7 @@
             </filled>
         </field>
     </form>
-
-
-
+    
     <form id="weatherReport">
         <field name="date">
             <prompt>
@@ -175,10 +173,11 @@
         </field>
     </form>
 
-    <form id="seasonalWeather">
+     <form id="seasonalWeather">
         <block>
             <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
             <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt>
+            <subdialog src="http://localhost:5000/seasonalWeather" method="get"/>
             <break time="3s"/>
             <goto next="#mainMenu"/>
         </block>
@@ -190,12 +189,12 @@
             <grammar mode="voice" root="item4">
                 <rule id="item4">
                     <one-of>
-                    <item>Fruit</item>
-                    <item>Grains</item>
-                    <item>Vegetables</item>
-                    <item>Fruit</item>
-                    <item>Specify</item>
-                    <item>Return</item>
+                        <item>Fruit</item>
+                        <item>Grains</item>
+                        <item>Vegetables</item>
+                        <item>Fruit</item>
+                        <item>Specify</item>
+                        <item>Return</item>
                     </one-of>
                 </rule>
             </grammar>
@@ -205,9 +204,7 @@
                         You will return to the main menu.
                     </prompt>
                 <else/>
-                    <prompt>
-                        You've selected <value expr="planting"/>. Here's the Planting practices suggestions for the selected crop based on weather predictions.
-                    </prompt>
+                    <subdialog src="http://localhost:5000/plantingSuggestions" method="post"/>
                 </if>
                 <break time="3s"/>
                 <goto next="#mainMenu"/>
@@ -215,19 +212,29 @@
         </field>
     </form>
 
-
-    <form id="reportRainfall">
-        <field name="rainfall" type="digits">
-            <prompt>Contribute to our weather database by reporting rainfall in your area. Please enter the amount of rainfall in your area using the keypad, followed by the # key. </prompt>
-            <filled>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <vxml version="2.1">
+        <form id="reportRainfall">
+            <field name="rainfall" type="digits">
                 <prompt>
-                    The rainfall you report is <value expr="rainfall"/>. Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.
+                    Contribute to our weather database by reporting rainfall in your area.
+                    Please enter the amount of rainfall in your area using the keypad, followed by the # key.
                 </prompt>
-                <break time="3s"/>
-                <goto next="#mainMenu"/>
-            </filled>
-        </field>
-    </form>
+                <filled>
+                    <subdialog src="http://localhost:5000/reportRainfall" method="post" namelist="rainfall">
+                        <filled>
+                            <prompt>
+                                The rainfall you reported is <value expr="rainfall"/>.
+                                Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.
+                            </prompt>
+                        </filled>
+                    </subdialog>
+                    <break time="3s"/>
+                    <goto next="#mainMenu"/>
+                </filled>
+            </field>
+        </form>
+    </vxml>
 
     <form id="indigenousKnowledge">
         <field name="knowledge">
@@ -241,36 +248,44 @@
             <grammar mode="voice" root="item9">
                 <rule id="item9">
                     <one-of>
-                    <item>weather prediction</item>
-                    <item>weather adaptation</item>
-                    <item>story</item>
-                    <item>Return</item>
+                        <item>weather prediction</item>
+                        <item>weather adaptation</item>
+                        <item>story</item>
+                        <item>Return</item>
                     </one-of>
                 </rule>
             </grammar>
             <filled>
-                <if cond="knowledge == 'return' ">
+                <if cond="knowledge == 'Return'">
                     <prompt>
                         You will return to the main menu.
                     </prompt>
-                <elseif cond = "knowledge == 'weather prediction" />
-                    <prompt>
-                        Detailed examples of how specific birds' activities or the appearance of certain plants are traditionally interpreted as signs predicting the start of the rainy season or indicating the expected season's quality.
-                    </prompt>
-                <elseif cond = "knowledge == 'weather adaption" />
-                    <prompt>
-                        Insights into traditional methods of soil conservation, water management, and crop selection that align with anticipated weather conditions, based on indigenous knowledge.
-                    </prompt>
-                <elseif cond = "knowledge == 'story" />
-                    <prompt>
-                        Narratives and anecdotes from farmers illustrating practical applications of indigenous weather prediction and its impact on agricultural decisions, including how a combination of natural signs guides their preparation for wind and seasonal changes.
-                    </prompt>
-                </if>
+                <elseif cond="knowledge == 'weather prediction'">
+                    <subdialog src="http://localhost:5000/indigenousKnowledge?knowledge=weather%20prediction" method="get">
+                        <filled>
+                            <prompt>The weather prediction information is: <value expr="subdialog_info"/></prompt>
+                        </filled>
+                    </subdialog>
+                <elseif cond="knowledge == 'weather adaptation'"/>
+                    <subdialog src="http://localhost:5000/indigenousKnowledge?knowledge=weather%20adaptation" method="get">
+                        <filled>
+                            <prompt>The weather adaptation information is: <value expr="subdialog_info"/></prompt>
+                        </filled>
+                    </subdialog>
+                <elseif cond="knowledge == 'story'"/>
+                    <subdialog src="http://localhost:5000/indigenousKnowledge?knowledge=story" method="get">
+                        <filled>
+                            <prompt>The farmer stories information is: <value expr="subdialog_info"/></prompt>
+                        </filled>
+                    </subdialog>
+                </elseif>
                 <break time="3s"/>
                 <goto next="#mainMenu"/>
             </filled>
         </field>
     </form>
+
+
     <form id="agriculturalKnowledge">
         <field name="agknowledge">
             <prompt>
@@ -284,11 +299,11 @@
             <grammar mode="voice" root="item5">
                 <rule id="item5">
                     <one-of>
-                    <item>soil</item>
-                    <item>water</item>
-                    <item>pest</item>
-                    <item>crop</item>
-                    <item>Return</item>
+                        <item>soil</item>
+                        <item>water</item>
+                        <item>pest</item>
+                        <item>crop</item>
+                        <item>Return</item>
                     </one-of>
                 </rule>
             </grammar>
@@ -297,28 +312,37 @@
                     <prompt>
                         You will return to the main menu.
                     </prompt>
-                <elseif cond = "agknowledge == 'soil" />
-                    <prompt>
-                        Daily tips and best practices in the selected category.
-                    </prompt>
-                <elseif cond = "agknowledge == 'water" />
-                    <prompt>
-                        Daily tips and best practices in the selected category.
-                    </prompt>
-                <elseif cond = "agknowledge == 'pest" />
-                    <prompt>
-                        Daily tips and best practices in the selected category.
-                    </prompt>
-                <elseif cond = "agknowledge == 'crop" />
-                    <prompt>
-                        Daily tips and best practices in the selected category.
-                    </prompt>
-                </if>
+                <elseif cond="agknowledge == 'soil'">
+                    <subdialog src="http://localhost:5000/agriculturalKnowledge?category=soil" method="get">
+                        <filled>
+                            <prompt>The soil management tip is: <value expr="subdialog_tip"/></prompt>
+                        </filled>
+                    </subdialog>
+                <elseif cond="agknowledge == 'water'"/>
+                    <subdialog src="http://localhost:5000/agriculturalKnowledge?category=water" method="get">
+                        <filled>
+                            <prompt>The water conservation tip is: <value expr="subdialog_tip"/></prompt>
+                        </filled>
+                    </subdialog>
+                <elseif cond="agknowledge == 'pest'"/>
+                    <subdialog src="http://localhost:5000/agriculturalKnowledge?category=pest" method="get">
+                        <filled>
+                            <prompt>The pest control tip is: <value expr="subdialog_tip"/></prompt>
+                        </filled>
+                    </subdialog>
+                <elseif cond="agknowledge == 'crop'"/>
+                    <subdialog src="http://localhost:5000/agriculturalKnowledge?category=crop" method="get">
+                        <filled>
+                            <prompt>The crop rotation tip is: <value expr="subdialog_tip"/></prompt>
+                        </filled>
+                    </subdialog>
+                </elseif>
                 <break time="3s"/>
                 <goto next="#mainMenu"/>
             </filled>
         </field>
     </form>
+
     <form id="alertSubscribe">
         <field name="subscrib">
             <prompt>
@@ -331,10 +355,10 @@
             <grammar mode="voice" root="item6">
                 <rule id="item6">
                     <one-of>
-                    <item>day</item>
-                    <item>week</item>
-                    <item>cancel</item>
-                    <item>Return</item>
+                        <item>day</item>
+                        <item>week</item>
+                        <item>cancel</item>
+                        <item>Return</item>
                     </one-of>
                 </rule>
             </grammar>
@@ -343,24 +367,19 @@
                     <prompt>
                         You will return to the main menu.
                     </prompt>
-                <elseif cond = "subscrib == 'week" />
-                    <prompt>
-                        You have subscribed a weekly alert.
-                    </prompt>
-                <elseif cond = "subscrib == 'cancel" />
-                    <prompt>
-                        You have cancel the alert subscription.
-                    </prompt>
-                <elseif cond = "subscrib == 'day" />
-                    <prompt>
-                        You have subscribed a daily alert.
-                    </prompt>
+                <elseif cond="subscrib == 'week'"/>
+                    <subdialog src="http://localhost:5000/alertSubscribe?type=week" method="post"/>
+                <elseif cond="subscrib == 'day'"/>
+                    <subdialog src="http://localhost:5000/alertSubscribe?type=day" method="post"/>
+                <elseif cond="subscrib == 'cancel'"/>
+                    <subdialog src="http://localhost:5000/alertSubscribe?type=cancel" method="post"/>
                 </if>
                 <break time="3s"/>
                 <goto next="#mainMenu"/>
             </filled>
         </field>
     </form>
+
     <form id="message">
         <record name="msg"
             beep="true"
@@ -368,15 +387,15 @@
             finalsilence="4000ms"
             type="audio/x-wav">
         <prompt timeout="5s">
-            Please leave your message after it start recording.
+            Please leave your message after it starts recording.
         </prompt>
         </record>
         <block>
             <prompt>
-                Your message is <value expr="msg"/>. Message successfully.
+                Your message is <value expr="msg"/>. Message successfully recorded.
             </prompt>
         </block>
-        <break time="3s"/>
+        <submit next="http://localhost:5000/message" method="post" namelist="msg"/>
         <goto next="#mainMenu"/>
     </form>
 </vxml>
