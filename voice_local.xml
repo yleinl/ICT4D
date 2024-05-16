@@ -157,13 +157,13 @@
                 <elseif cond="date == 'Week'"/>
                     <subdialog src="http://117.72.46.192:8000/weather?date=Week" namelist="date">
                         <filled>
-                            <prompt>Here's the weekly weather summary: <value expr="subdialog_forecast"/></prompt>
+                            <prompt>Here's the weekly weather summary: <value expr="forecast"/></prompt>
                         </filled>
                     </subdialog>
                 <else/>
                     <subdialog expr="'http://117.72.46.192:8000/weather?date=' + date" namelist="date">
                         <filled>
-                            <prompt>You've selected <value expr="date"/>. Here's the detailed forecast: <value expr="subdialog_forecast"/></prompt>
+                            <prompt>You've selected <value expr="date"/>. Here's the detailed forecast: <value expr="forecast"/></prompt>
                         </filled>
                     </subdialog>
                 </if>
@@ -179,7 +179,7 @@
             <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt>
             <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/seasonalWeather" method="get">
                 <filled>
-                    <prompt>The seasonal weather outlook is: <value expr="subdialog_outlook"/></prompt>
+                    <prompt>The seasonal weather outlook is: <value expr="outlook"/></prompt>
                 </filled>
             </subdialog>
             <break time="3s"/>
