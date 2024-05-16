@@ -177,7 +177,7 @@
         <block>
             <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
             <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt>
-            <subdialog src="http://localhost:5000/seasonalWeather" method="get">
+            <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/seasonalWeather" method="get">
                 <filled>
                     <prompt>The seasonal weather outlook is: <value expr="subdialog_outlook"/></prompt>
                 </filled>
@@ -207,7 +207,7 @@
                         You will return to the main menu.
                     </prompt>
                 <else/>
-                    <subdialog src="http://localhost:5000/plantingSuggestion?crop={planting}" method="get">
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/plantingSuggestion?crop={planting}" method="get">
                         <filled>
                             <prompt>The planting suggestion for {planting} is: <value expr="subdialog_suggestion"/></prompt>
                         </filled>
@@ -229,7 +229,7 @@
                     Please enter the amount of rainfall in your area using the keypad, followed by the # key.
                 </prompt>
                 <filled>
-                    <subdialog src="http://localhost:5000/reportRainfall" method="post" namelist="rainfall">
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/reportRainfall" method="post" namelist="rainfall">
                         <filled>
                             <prompt>
                                 The rainfall you reported is <value expr="rainfall"/>.
@@ -270,19 +270,19 @@
                     </prompt>
                 </if>
                 <if cond="knowledge == 'weather prediction'">
-                    <subdialog src="http://localhost:5000/indigenousKnowledge?knowledge=weather%20prediction" method="get">
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=weather%20prediction" method="get">
                         <filled>
                             <prompt>The weather prediction information is: <value expr="subdialog_info"/></prompt>
                         </filled>
                     </subdialog>
                 <elseif cond="knowledge == 'weather adaptation'"/>
-                    <subdialog src="http://localhost:5000/indigenousKnowledge?knowledge=weather%20adaptation" method="get">
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=weather%20adaptation" method="get">
                         <filled>
                             <prompt>The weather adaptation information is: <value expr="subdialog_info"/></prompt>
                         </filled>
                     </subdialog>
                 <elseif cond="knowledge == 'story'"/>
-                    <subdialog src="http://localhost:5000/indigenousKnowledge?knowledge=story" method="get">
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=story" method="get">
                         <filled>
                             <prompt>The farmer stories information is: <value expr="subdialog_info"/></prompt>
                         </filled>
@@ -323,25 +323,25 @@
                     </prompt>
                 </if>
                 <if cond="agknowledge == 'soil'">
-                    <subdialog src="http://localhost:5000/agriculturalKnowledge?category=soil" method="get">
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=soil" method="get">
                         <filled>
                             <prompt>The soil management tip is: <value expr="subdialog_tip"/></prompt>
                         </filled>
                     </subdialog>
                 <elseif cond="agknowledge == 'water'"/>
-                    <subdialog src="http://localhost:5000/agriculturalKnowledge?category=water" method="get">
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=water" method="get">
                         <filled>
                             <prompt>The water conservation tip is: <value expr="subdialog_tip"/></prompt>
                         </filled>
                     </subdialog>
                 <elseif cond="agknowledge == 'pest'"/>
-                    <subdialog src="http://localhost:5000/agriculturalKnowledge?category=pest" method="get">
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=pest" method="get">
                         <filled>
                             <prompt>The pest control tip is: <value expr="subdialog_tip"/></prompt>
                         </filled>
                     </subdialog>
                 <elseif cond="agknowledge == 'crop'"/>
-                    <subdialog src="http://localhost:5000/agriculturalKnowledge?category=crop" method="get">
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=crop" method="get">
                         <filled>
                             <prompt>The crop rotation tip is: <value expr="subdialog_tip"/></prompt>
                         </filled>
@@ -378,11 +378,11 @@
                         You will return to the main menu.
                     </prompt>
                 <elseif cond="subscrib == 'week'"/>
-                    <subdialog src="http://localhost:5000/alertSubscribe?type=week" method="post"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=week" method="post"/>
                 <elseif cond="subscrib == 'day'"/>
-                    <subdialog src="http://localhost:5000/alertSubscribe?type=day" method="post"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=day" method="post"/>
                 <elseif cond="subscrib == 'cancel'"/>
-                    <subdialog src="http://localhost:5000/alertSubscribe?type=cancel" method="post"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=cancel" method="post"/>
                 </if>
                 <break time="3s"/>
                 <goto next="#mainMenu"/>
@@ -405,7 +405,7 @@
                 Your message is <value expr="msg"/>. Message successfully recorded.
             </prompt>
         </block>
-        <submit next="http://localhost:5000/message" method="post" namelist="msg"/>
+        <submit next="https://ict4dassignment-d97a46441a51.herokuapp.com/message" method="post" namelist="msg"/>
         <goto next="#mainMenu"/>
     </form>
 </vxml>
