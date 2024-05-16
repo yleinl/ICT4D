@@ -115,6 +115,17 @@ def leave_message():
     message = request.form.get('message')
     return jsonify({"message": f"Your message: {message}"})
 
+@app.route('/weather', methods=['GET'])
+def get_weather():
+    date = request.args.get('date')
+    if date == 'return':
+        response = "You will return to the main menu."
+    elif date == 'Week':
+        response = "Here's the weekly weather summary: [Weekly Weather Data Here]"
+    else:
+        response = f"You've selected {date}. Here's the detailed forecast: [Detailed Weather Data Here]"
+    return jsonify({"forecast": response})
+
 if __name__ == '__main__':
     app.run(debug=True)
     # Here we can change the address flask server running
