@@ -241,55 +241,55 @@
         </field>
     </form>
 
-<!--    <form id="indigenousKnowledge">-->
-<!--        <field name="knowledge">-->
-<!--            <prompt>-->
-<!--                Explore ancient wisdom for modern farming success. Indigenous knowledge offers unique insights into weather prediction and agricultural adaptation. Please select a topic of interest.-->
-<!--                You can Say weather prediction to learn about signs from nature for weather prediction-->
-<!--                You can Say weather adaptation to discover traditional farming practices for weather adaptation-->
-<!--                You can say story to hear stories and lessons from local farmers-->
-<!--                You can say return to go back the main menu.-->
-<!--            </prompt>-->
-<!--            <grammar mode="voice" root="item9">-->
-<!--                <rule id="item9">-->
-<!--                    <one-of>-->
-<!--                        <item>weather prediction</item>-->
-<!--                        <item>weather adaptation</item>-->
-<!--                        <item>story</item>-->
-<!--                        <item>Return</item>-->
-<!--                    </one-of>-->
-<!--                </rule>-->
-<!--            </grammar>-->
-<!--            <filled>-->
-<!--                <if cond="knowledge == 'return' ">-->
-<!--                    <prompt>-->
-<!--                        You will return to the main menu.-->
-<!--                    </prompt>-->
-<!--                </if>-->
-<!--                <if cond="knowledge == 'weather prediction'">-->
-<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=weather%20prediction" method="get">-->
-<!--                        <filled>-->
-<!--                            <prompt>The weather prediction information is: <value expr="subdialog_info"/></prompt>-->
-<!--                        </filled>-->
-<!--                    </subdialog>-->
-<!--                <elseif cond="knowledge == 'weather adaptation'"/>-->
-<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=weather%20adaptation" method="get">-->
-<!--                        <filled>-->
-<!--                            <prompt>The weather adaptation information is: <value expr="subdialog_info"/></prompt>-->
-<!--                        </filled>-->
-<!--                    </subdialog>-->
-<!--                <elseif cond="knowledge == 'story'"/>-->
-<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=story" method="get">-->
-<!--                        <filled>-->
-<!--                            <prompt>The farmer stories information is: <value expr="subdialog_info"/></prompt>-->
-<!--                        </filled>-->
-<!--                    </subdialog>-->
-<!--                </if>-->
-<!--                <break time="3s"/>-->
-<!--                <goto next="#mainMenu"/>-->
-<!--            </filled>-->
-<!--        </field>-->
-<!--    </form>-->
+    <form id="indigenousKnowledge">
+        <field name="knowledge">
+            <prompt>
+                Explore ancient wisdom for modern farming success. Indigenous knowledge offers unique insights into weather prediction and agricultural adaptation. Please select a topic of interest.
+                You can Say weather prediction to learn about signs from nature for weather prediction
+                You can Say weather adaptation to discover traditional farming practices for weather adaptation
+                You can say story to hear stories and lessons from local farmers
+                You can say return to go back the main menu.
+            </prompt>
+            <grammar mode="voice" root="item9">
+                <rule id="item9">
+                    <one-of>
+                        <item>weather prediction</item>
+                        <item>weather adaptation</item>
+                        <item>story</item>
+                        <item>Return</item>
+                    </one-of>
+                </rule>
+            </grammar>
+            <filled>
+                <if cond="knowledge == 'return' ">
+                    <prompt>
+                        You will return to the main menu.
+                    </prompt>
+                </if>
+                <if cond="knowledge == 'weather prediction'">
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=weather%20prediction" method="get">
+                        <filled>
+                            <prompt>The weather prediction information is: <value expr="subdialog_info"/></prompt>
+                        </filled>
+                    </subdialog>
+                <elseif cond="knowledge == 'weather adaptation'"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=weather%20adaptation" method="get">
+                        <filled>
+                            <prompt>The weather adaptation information is: <value expr="subdialog_info"/></prompt>
+                        </filled>
+                    </subdialog>
+                <elseif cond="knowledge == 'story'"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=story" method="get">
+                        <filled>
+                            <prompt>The farmer stories information is: <value expr="subdialog_info"/></prompt>
+                        </filled>
+                    </subdialog>
+                </if>
+                <break time="3s"/>
+                <goto next="#mainMenu"/>
+            </filled>
+        </field>
+    </form>
 
 
 <!--    <form id="agriculturalKnowledge">-->
