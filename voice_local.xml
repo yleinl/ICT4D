@@ -350,59 +350,60 @@
         </field>
     </form>
 
-    <form id="alertSubscribe">
-        <field name="subscrib">
-            <prompt>
-                Subscribe to weather and agricultural alerts personalized to your location and crop preference.
-                You can say week for weekly Subscription.
-                You can say day for daily subscription.
-                You can say cancel for cancel the subscription.
-                You can say return to go back the main menu.
-            </prompt>
-            <grammar mode="voice" root="item6">
-                <rule id="item6">
-                    <one-of>
-                        <item>day</item>
-                        <item>week</item>
-                        <item>cancel</item>
-                        <item>Return</item>
-                    </one-of>
-                </rule>
-            </grammar>
-            <filled>
-                <if cond="subscrib == 'return' ">
-                    <prompt>
-                        You will return to the main menu.
-                    </prompt>
-                <elseif cond="subscrib == 'week'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=week" method="get"/>
-                <elseif cond="subscrib == 'day'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=day" method="get"/>
-                <elseif cond="subscrib == 'cancel'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=cancel" method="get"/>
-                </if>
-                <break time="3s"/>
-                <goto next="#mainMenu"/>
-            </filled>
-        </field>
-    </form>
-
-<!--    <form id="message">-->
-<!--        <record name="msg"-->
-<!--            beep="true"-->
-<!--            maxtime="10s"-->
-<!--            finalsilence="4000ms"-->
-<!--            type="audio/x-wav">-->
-<!--        <prompt timeout="5s">-->
-<!--            Please leave your message after it starts recording.-->
-<!--        </prompt>-->
-<!--        </record>-->
-<!--        <block>-->
+<!--    bug to be fixed-->
+<!--    <form id="alertSubscribe">-->
+<!--        <field name="subscrib">-->
 <!--            <prompt>-->
-<!--                Your message is <value expr="msg"/>. Message successfully recorded.-->
+<!--                Subscribe to weather and agricultural alerts personalized to your location and crop preference.-->
+<!--                You can say week for weekly Subscription.-->
+<!--                You can say day for daily subscription.-->
+<!--                You can say cancel for cancel the subscription.-->
+<!--                You can say return to go back the main menu.-->
 <!--            </prompt>-->
-<!--        </block>-->
-<!--        <submit next="https://ict4dassignment-d97a46441a51.herokuapp.com/message" method="post" namelist="msg"/>-->
-<!--        <goto next="#mainMenu"/>-->
+<!--            <grammar mode="voice" root="item6">-->
+<!--                <rule id="item6">-->
+<!--                    <one-of>-->
+<!--                        <item>day</item>-->
+<!--                        <item>week</item>-->
+<!--                        <item>cancel</item>-->
+<!--                        <item>Return</item>-->
+<!--                    </one-of>-->
+<!--                </rule>-->
+<!--            </grammar>-->
+<!--            <filled>-->
+<!--                <if cond="subscrib == 'return' ">-->
+<!--                    <prompt>-->
+<!--                        You will return to the main menu.-->
+<!--                    </prompt>-->
+<!--                <elseif cond="subscrib == 'week'"/>-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=week" method="get"/>-->
+<!--                <elseif cond="subscrib == 'day'"/>-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=day" method="get"/>-->
+<!--                <elseif cond="subscrib == 'cancel'"/>-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=cancel" method="get"/>-->
+<!--                </if>-->
+<!--                <break time="3s"/>-->
+<!--                <goto next="#mainMenu"/>-->
+<!--            </filled>-->
+<!--        </field>-->
 <!--    </form>-->
+
+    <form id="message">
+        <record name="msg"
+            beep="true"
+            maxtime="10s"
+            finalsilence="4000ms"
+            type="audio/x-wav">
+        <prompt timeout="5s">
+            Please leave your message after it starts recording.
+        </prompt>
+        </record>
+        <block>
+            <prompt>
+                Your message is <value expr="msg"/>. Message successfully recorded.
+            </prompt>
+        </block>
+        <submit next="https://ict4dassignment-d97a46441a51.herokuapp.com/message" method="post" namelist="msg"/>
+        <goto next="#mainMenu"/>
+    </form>
 </vxml>
