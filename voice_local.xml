@@ -220,29 +220,28 @@
     </form>
 
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <vxml version="2.1">
-        <form id="reportRainfall">
-            <field name="rainfall" type="digits">
-                <prompt>
-                    Contribute to our weather database by reporting rainfall in your area.
-                    Please enter the amount of rainfall in your area using the keypad, followed by the # key.
-                </prompt>
-                <filled>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/reportRainfall" method="post" namelist="rainfall">
-                        <filled>
-                            <prompt>
-                                The rainfall you reported is <value expr="rainfall"/>.
-                                Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.
-                            </prompt>
-                        </filled>
-                    </subdialog>
-                    <break time="3s"/>
-                    <goto next="#mainMenu"/>
-                </filled>
-            </field>
-        </form>
-    </vxml>
+<!--    <?xml version="1.0" encoding="UTF-8"?>-->
+<!--    <vxml version="2.1">-->
+    <form id="reportRainfall">
+        <field name="rainfall" type="digits">
+            <prompt>
+                Contribute to our weather database by reporting rainfall in your area.
+                Please enter the amount of rainfall in your area using the keypad, followed by the # key.
+            </prompt>
+            <filled>
+                <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/reportRainfall" method="post" namelist="rainfall">
+                    <filled>
+                        <prompt>
+                            The rainfall you reported is <value expr="rainfall"/>.
+                            Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.
+                        </prompt>
+                    </filled>
+                </subdialog>
+                <break time="3s"/>
+                <goto next="#mainMenu"/>
+            </filled>
+        </field>
+    </form>
 
     <form id="indigenousKnowledge">
         <field name="knowledge">
