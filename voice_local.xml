@@ -375,11 +375,11 @@
                         You will return to the main menu.
                     </prompt>
                 <elseif cond="subscrib == 'week'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=week" method="post"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=week" method="get"/>
                 <elseif cond="subscrib == 'day'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=day" method="post"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=day" method="get"/>
                 <elseif cond="subscrib == 'cancel'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=cancel" method="post"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=cancel" method="get"/>
                 </if>
                 <break time="3s"/>
                 <goto next="#mainMenu"/>
