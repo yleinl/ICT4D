@@ -36,7 +36,7 @@ class Message(db.Model):
 
 # Initial data
 seasonal_weather_data = [
-    {"outlook": "Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities. Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season."}
+    {"outlook": "example seasonal weather data"}
 ]
 
 report_rainfall_data = [
