@@ -173,238 +173,238 @@
         </field>
     </form>
 
-     <form id="seasonalWeather">
-        <block>
-            <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
-            <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt>
-            <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/seasonalWeather" method="get">
-                <filled>
-                    <prompt>The seasonal weather outlook is: <value expr="subdialog_outlook"/></prompt>
-                </filled>
-            </subdialog>
-            <break time="3s"/>
-            <goto next="#mainMenu"/>
-        </block>
-    </form>
+<!--     <form id="seasonalWeather">-->
+<!--        <block>-->
+<!--            <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>-->
+<!--            <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt>-->
+<!--            <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/seasonalWeather" method="get">-->
+<!--                <filled>-->
+<!--                    <prompt>The seasonal weather outlook is: <value expr="subdialog_outlook"/></prompt>-->
+<!--                </filled>-->
+<!--            </subdialog>-->
+<!--            <break time="3s"/>-->
+<!--            <goto next="#mainMenu"/>-->
+<!--        </block>-->
+<!--    </form>-->
 
-    <form id="plantingSuggestion">
-        <field name="planting">
-            <prompt>For planting suggestions based on current and upcoming weather conditions, please select your crop. You can say return to go back the main menu. </prompt>
-            <grammar mode="voice" root="item4">
-                <rule id="item4">
-                    <one-of>
-                        <item>Fruit</item>
-                        <item>Grains</item>
-                        <item>Vegetables</item>
-                        <item>Specify</item>
-                        <item>Return</item>
-                    </one-of>
-                </rule>
-            </grammar>
-            <filled>
-                <if cond="planting == 'return' ">
-                    <prompt>
-                        You will return to the main menu.
-                    </prompt>
-                <else/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/plantingSuggestion?crop={planting}" method="get">
-                        <filled>
-                            <prompt>The planting suggestion for {planting} is: <value expr="subdialog_suggestion"/></prompt>
-                        </filled>
-                    </subdialog>
-                </if>
-                <break time="3s"/>
-                <goto next="#mainMenu"/>
-            </filled>
-        </field>
-    </form>
-
-
-<!--    <?xml version="1.0" encoding="UTF-8"?>-->
-<!--    <vxml version="2.1">-->
-    <form id="reportRainfall">
-        <field name="rainfall" type="digits">
-            <prompt>
-                Contribute to our weather database by reporting rainfall in your area.
-                Please enter the amount of rainfall in your area using the keypad, followed by the # key.
-            </prompt>
-            <filled>
-                <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/reportRainfall" method="post" namelist="rainfall">
-                    <filled>
-                        <prompt>
-                            The rainfall you reported is <value expr="rainfall"/>.
-                            Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.
-                        </prompt>
-                    </filled>
-                </subdialog>
-                <break time="3s"/>
-                <goto next="#mainMenu"/>
-            </filled>
-        </field>
-    </form>
-
-    <form id="indigenousKnowledge">
-        <field name="knowledge">
-            <prompt>
-                Explore ancient wisdom for modern farming success. Indigenous knowledge offers unique insights into weather prediction and agricultural adaptation. Please select a topic of interest.
-                You can Say weather prediction to learn about signs from nature for weather prediction
-                You can Say weather adaptation to discover traditional farming practices for weather adaptation
-                You can say story to hear stories and lessons from local farmers
-                You can say return to go back the main menu.
-            </prompt>
-            <grammar mode="voice" root="item9">
-                <rule id="item9">
-                    <one-of>
-                        <item>weather prediction</item>
-                        <item>weather adaptation</item>
-                        <item>story</item>
-                        <item>Return</item>
-                    </one-of>
-                </rule>
-            </grammar>
-            <filled>
-                <if cond="knowledge == 'return' ">
-                    <prompt>
-                        You will return to the main menu.
-                    </prompt>
-                </if>
-                <if cond="knowledge == 'weather prediction'">
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=weather%20prediction" method="get">
-                        <filled>
-                            <prompt>The weather prediction information is: <value expr="subdialog_info"/></prompt>
-                        </filled>
-                    </subdialog>
-                <elseif cond="knowledge == 'weather adaptation'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=weather%20adaptation" method="get">
-                        <filled>
-                            <prompt>The weather adaptation information is: <value expr="subdialog_info"/></prompt>
-                        </filled>
-                    </subdialog>
-                <elseif cond="knowledge == 'story'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=story" method="get">
-                        <filled>
-                            <prompt>The farmer stories information is: <value expr="subdialog_info"/></prompt>
-                        </filled>
-                    </subdialog>
-                </if>
-                <break time="3s"/>
-                <goto next="#mainMenu"/>
-            </filled>
-        </field>
-    </form>
+<!--    <form id="plantingSuggestion">-->
+<!--        <field name="planting">-->
+<!--            <prompt>For planting suggestions based on current and upcoming weather conditions, please select your crop. You can say return to go back the main menu. </prompt>-->
+<!--            <grammar mode="voice" root="item4">-->
+<!--                <rule id="item4">-->
+<!--                    <one-of>-->
+<!--                        <item>Fruit</item>-->
+<!--                        <item>Grains</item>-->
+<!--                        <item>Vegetables</item>-->
+<!--                        <item>Specify</item>-->
+<!--                        <item>Return</item>-->
+<!--                    </one-of>-->
+<!--                </rule>-->
+<!--            </grammar>-->
+<!--            <filled>-->
+<!--                <if cond="planting == 'return' ">-->
+<!--                    <prompt>-->
+<!--                        You will return to the main menu.-->
+<!--                    </prompt>-->
+<!--                <else/>-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/plantingSuggestion?crop={planting}" method="get">-->
+<!--                        <filled>-->
+<!--                            <prompt>The planting suggestion for {planting} is: <value expr="subdialog_suggestion"/></prompt>-->
+<!--                        </filled>-->
+<!--                    </subdialog>-->
+<!--                </if>-->
+<!--                <break time="3s"/>-->
+<!--                <goto next="#mainMenu"/>-->
+<!--            </filled>-->
+<!--        </field>-->
+<!--    </form>-->
 
 
-    <form id="agriculturalKnowledge">
-        <field name="agknowledge">
-            <prompt>
-                Access daily agricultural tips, updates, and best practices. Please select a category.
-                You can say soil for soil management tips.
-                You can say water for water conservation techniques.
-                You can say pest for pest control.
-                You can say crop for crop rotation advice.
-                You can say return to go back the main menu.
-            </prompt>
-            <grammar mode="voice" root="item5">
-                <rule id="item5">
-                    <one-of>
-                        <item>soil</item>
-                        <item>water</item>
-                        <item>pest</item>
-                        <item>crop</item>
-                        <item>Return</item>
-                    </one-of>
-                </rule>
-            </grammar>
-            <filled>
-                <if cond="agknowledge == 'return' ">
-                    <prompt>
-                        You will return to the main menu.
-                    </prompt>
-                </if>
-                <if cond="agknowledge == 'soil'">
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=soil" method="get">
-                        <filled>
-                            <prompt>The soil management tip is: <value expr="subdialog_tip"/></prompt>
-                        </filled>
-                    </subdialog>
-                <elseif cond="agknowledge == 'water'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=water" method="get">
-                        <filled>
-                            <prompt>The water conservation tip is: <value expr="subdialog_tip"/></prompt>
-                        </filled>
-                    </subdialog>
-                <elseif cond="agknowledge == 'pest'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=pest" method="get">
-                        <filled>
-                            <prompt>The pest control tip is: <value expr="subdialog_tip"/></prompt>
-                        </filled>
-                    </subdialog>
-                <elseif cond="agknowledge == 'crop'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=crop" method="get">
-                        <filled>
-                            <prompt>The crop rotation tip is: <value expr="subdialog_tip"/></prompt>
-                        </filled>
-                    </subdialog>
-                </if>
-                <break time="3s"/>
-                <goto next="#mainMenu"/>
-            </filled>
-        </field>
-    </form>
+<!--&lt;!&ndash;    <?xml version="1.0" encoding="UTF-8"?>&ndash;&gt;-->
+<!--&lt;!&ndash;    <vxml version="2.1">&ndash;&gt;-->
+<!--    <form id="reportRainfall">-->
+<!--        <field name="rainfall" type="digits">-->
+<!--            <prompt>-->
+<!--                Contribute to our weather database by reporting rainfall in your area.-->
+<!--                Please enter the amount of rainfall in your area using the keypad, followed by the # key.-->
+<!--            </prompt>-->
+<!--            <filled>-->
+<!--                <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/reportRainfall" method="post" namelist="rainfall">-->
+<!--                    <filled>-->
+<!--                        <prompt>-->
+<!--                            The rainfall you reported is <value expr="rainfall"/>.-->
+<!--                            Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.-->
+<!--                        </prompt>-->
+<!--                    </filled>-->
+<!--                </subdialog>-->
+<!--                <break time="3s"/>-->
+<!--                <goto next="#mainMenu"/>-->
+<!--            </filled>-->
+<!--        </field>-->
+<!--    </form>-->
 
-    <form id="alertSubscribe">
-        <field name="subscrib">
-            <prompt>
-                Subscribe to weather and agricultural alerts personalized to your location and crop preference.
-                You can say week for weekly Subscription.
-                You can say day for daily subscription.
-                You can say cancel for cancel the subscription.
-                You can say return to go back the main menu.
-            </prompt>
-            <grammar mode="voice" root="item6">
-                <rule id="item6">
-                    <one-of>
-                        <item>day</item>
-                        <item>week</item>
-                        <item>cancel</item>
-                        <item>Return</item>
-                    </one-of>
-                </rule>
-            </grammar>
-            <filled>
-                <if cond="subscrib == 'return' ">
-                    <prompt>
-                        You will return to the main menu.
-                    </prompt>
-                <elseif cond="subscrib == 'week'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=week" method="post"/>
-                <elseif cond="subscrib == 'day'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=day" method="post"/>
-                <elseif cond="subscrib == 'cancel'"/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=cancel" method="post"/>
-                </if>
-                <break time="3s"/>
-                <goto next="#mainMenu"/>
-            </filled>
-        </field>
-    </form>
+<!--    <form id="indigenousKnowledge">-->
+<!--        <field name="knowledge">-->
+<!--            <prompt>-->
+<!--                Explore ancient wisdom for modern farming success. Indigenous knowledge offers unique insights into weather prediction and agricultural adaptation. Please select a topic of interest.-->
+<!--                You can Say weather prediction to learn about signs from nature for weather prediction-->
+<!--                You can Say weather adaptation to discover traditional farming practices for weather adaptation-->
+<!--                You can say story to hear stories and lessons from local farmers-->
+<!--                You can say return to go back the main menu.-->
+<!--            </prompt>-->
+<!--            <grammar mode="voice" root="item9">-->
+<!--                <rule id="item9">-->
+<!--                    <one-of>-->
+<!--                        <item>weather prediction</item>-->
+<!--                        <item>weather adaptation</item>-->
+<!--                        <item>story</item>-->
+<!--                        <item>Return</item>-->
+<!--                    </one-of>-->
+<!--                </rule>-->
+<!--            </grammar>-->
+<!--            <filled>-->
+<!--                <if cond="knowledge == 'return' ">-->
+<!--                    <prompt>-->
+<!--                        You will return to the main menu.-->
+<!--                    </prompt>-->
+<!--                </if>-->
+<!--                <if cond="knowledge == 'weather prediction'">-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=weather%20prediction" method="get">-->
+<!--                        <filled>-->
+<!--                            <prompt>The weather prediction information is: <value expr="subdialog_info"/></prompt>-->
+<!--                        </filled>-->
+<!--                    </subdialog>-->
+<!--                <elseif cond="knowledge == 'weather adaptation'"/>-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=weather%20adaptation" method="get">-->
+<!--                        <filled>-->
+<!--                            <prompt>The weather adaptation information is: <value expr="subdialog_info"/></prompt>-->
+<!--                        </filled>-->
+<!--                    </subdialog>-->
+<!--                <elseif cond="knowledge == 'story'"/>-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/indigenousKnowledge?knowledge=story" method="get">-->
+<!--                        <filled>-->
+<!--                            <prompt>The farmer stories information is: <value expr="subdialog_info"/></prompt>-->
+<!--                        </filled>-->
+<!--                    </subdialog>-->
+<!--                </if>-->
+<!--                <break time="3s"/>-->
+<!--                <goto next="#mainMenu"/>-->
+<!--            </filled>-->
+<!--        </field>-->
+<!--    </form>-->
 
-    <form id="message">
-        <record name="msg"
-            beep="true"
-            maxtime="10s"
-            finalsilence="4000ms"
-            type="audio/x-wav">
-        <prompt timeout="5s">
-            Please leave your message after it starts recording.
-        </prompt>
-        </record>
-        <block>
-            <prompt>
-                Your message is <value expr="msg"/>. Message successfully recorded.
-            </prompt>
-        </block>
-        <submit next="https://ict4dassignment-d97a46441a51.herokuapp.com/message" method="post" namelist="msg"/>
-        <goto next="#mainMenu"/>
-    </form>
+
+<!--    <form id="agriculturalKnowledge">-->
+<!--        <field name="agknowledge">-->
+<!--            <prompt>-->
+<!--                Access daily agricultural tips, updates, and best practices. Please select a category.-->
+<!--                You can say soil for soil management tips.-->
+<!--                You can say water for water conservation techniques.-->
+<!--                You can say pest for pest control.-->
+<!--                You can say crop for crop rotation advice.-->
+<!--                You can say return to go back the main menu.-->
+<!--            </prompt>-->
+<!--            <grammar mode="voice" root="item5">-->
+<!--                <rule id="item5">-->
+<!--                    <one-of>-->
+<!--                        <item>soil</item>-->
+<!--                        <item>water</item>-->
+<!--                        <item>pest</item>-->
+<!--                        <item>crop</item>-->
+<!--                        <item>Return</item>-->
+<!--                    </one-of>-->
+<!--                </rule>-->
+<!--            </grammar>-->
+<!--            <filled>-->
+<!--                <if cond="agknowledge == 'return' ">-->
+<!--                    <prompt>-->
+<!--                        You will return to the main menu.-->
+<!--                    </prompt>-->
+<!--                </if>-->
+<!--                <if cond="agknowledge == 'soil'">-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=soil" method="get">-->
+<!--                        <filled>-->
+<!--                            <prompt>The soil management tip is: <value expr="subdialog_tip"/></prompt>-->
+<!--                        </filled>-->
+<!--                    </subdialog>-->
+<!--                <elseif cond="agknowledge == 'water'"/>-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=water" method="get">-->
+<!--                        <filled>-->
+<!--                            <prompt>The water conservation tip is: <value expr="subdialog_tip"/></prompt>-->
+<!--                        </filled>-->
+<!--                    </subdialog>-->
+<!--                <elseif cond="agknowledge == 'pest'"/>-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=pest" method="get">-->
+<!--                        <filled>-->
+<!--                            <prompt>The pest control tip is: <value expr="subdialog_tip"/></prompt>-->
+<!--                        </filled>-->
+<!--                    </subdialog>-->
+<!--                <elseif cond="agknowledge == 'crop'"/>-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=crop" method="get">-->
+<!--                        <filled>-->
+<!--                            <prompt>The crop rotation tip is: <value expr="subdialog_tip"/></prompt>-->
+<!--                        </filled>-->
+<!--                    </subdialog>-->
+<!--                </if>-->
+<!--                <break time="3s"/>-->
+<!--                <goto next="#mainMenu"/>-->
+<!--            </filled>-->
+<!--        </field>-->
+<!--    </form>-->
+
+<!--    <form id="alertSubscribe">-->
+<!--        <field name="subscrib">-->
+<!--            <prompt>-->
+<!--                Subscribe to weather and agricultural alerts personalized to your location and crop preference.-->
+<!--                You can say week for weekly Subscription.-->
+<!--                You can say day for daily subscription.-->
+<!--                You can say cancel for cancel the subscription.-->
+<!--                You can say return to go back the main menu.-->
+<!--            </prompt>-->
+<!--            <grammar mode="voice" root="item6">-->
+<!--                <rule id="item6">-->
+<!--                    <one-of>-->
+<!--                        <item>day</item>-->
+<!--                        <item>week</item>-->
+<!--                        <item>cancel</item>-->
+<!--                        <item>Return</item>-->
+<!--                    </one-of>-->
+<!--                </rule>-->
+<!--            </grammar>-->
+<!--            <filled>-->
+<!--                <if cond="subscrib == 'return' ">-->
+<!--                    <prompt>-->
+<!--                        You will return to the main menu.-->
+<!--                    </prompt>-->
+<!--                <elseif cond="subscrib == 'week'"/>-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=week" method="post"/>-->
+<!--                <elseif cond="subscrib == 'day'"/>-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=day" method="post"/>-->
+<!--                <elseif cond="subscrib == 'cancel'"/>-->
+<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/alertSubscribe?type=cancel" method="post"/>-->
+<!--                </if>-->
+<!--                <break time="3s"/>-->
+<!--                <goto next="#mainMenu"/>-->
+<!--            </filled>-->
+<!--        </field>-->
+<!--    </form>-->
+
+<!--    <form id="message">-->
+<!--        <record name="msg"-->
+<!--            beep="true"-->
+<!--            maxtime="10s"-->
+<!--            finalsilence="4000ms"-->
+<!--            type="audio/x-wav">-->
+<!--        <prompt timeout="5s">-->
+<!--            Please leave your message after it starts recording.-->
+<!--        </prompt>-->
+<!--        </record>-->
+<!--        <block>-->
+<!--            <prompt>-->
+<!--                Your message is <value expr="msg"/>. Message successfully recorded.-->
+<!--            </prompt>-->
+<!--        </block>-->
+<!--        <submit next="https://ict4dassignment-d97a46441a51.herokuapp.com/message" method="post" namelist="msg"/>-->
+<!--        <goto next="#mainMenu"/>-->
+<!--    </form>-->
 </vxml>
