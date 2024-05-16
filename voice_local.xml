@@ -292,63 +292,63 @@
     </form>
 
 
-<!--    <form id="agriculturalKnowledge">-->
-<!--        <field name="agknowledge">-->
-<!--            <prompt>-->
-<!--                Access daily agricultural tips, updates, and best practices. Please select a category.-->
-<!--                You can say soil for soil management tips.-->
-<!--                You can say water for water conservation techniques.-->
-<!--                You can say pest for pest control.-->
-<!--                You can say crop for crop rotation advice.-->
-<!--                You can say return to go back the main menu.-->
-<!--            </prompt>-->
-<!--            <grammar mode="voice" root="item5">-->
-<!--                <rule id="item5">-->
-<!--                    <one-of>-->
-<!--                        <item>soil</item>-->
-<!--                        <item>water</item>-->
-<!--                        <item>pest</item>-->
-<!--                        <item>crop</item>-->
-<!--                        <item>Return</item>-->
-<!--                    </one-of>-->
-<!--                </rule>-->
-<!--            </grammar>-->
-<!--            <filled>-->
-<!--                <if cond="agknowledge == 'return' ">-->
-<!--                    <prompt>-->
-<!--                        You will return to the main menu.-->
-<!--                    </prompt>-->
-<!--                </if>-->
-<!--                <if cond="agknowledge == 'soil'">-->
-<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=soil" method="get">-->
-<!--                        <filled>-->
-<!--                            <prompt>The soil management tip is: <value expr="subdialog_tip"/></prompt>-->
-<!--                        </filled>-->
-<!--                    </subdialog>-->
-<!--                <elseif cond="agknowledge == 'water'"/>-->
-<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=water" method="get">-->
-<!--                        <filled>-->
-<!--                            <prompt>The water conservation tip is: <value expr="subdialog_tip"/></prompt>-->
-<!--                        </filled>-->
-<!--                    </subdialog>-->
-<!--                <elseif cond="agknowledge == 'pest'"/>-->
-<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=pest" method="get">-->
-<!--                        <filled>-->
-<!--                            <prompt>The pest control tip is: <value expr="subdialog_tip"/></prompt>-->
-<!--                        </filled>-->
-<!--                    </subdialog>-->
-<!--                <elseif cond="agknowledge == 'crop'"/>-->
-<!--                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=crop" method="get">-->
-<!--                        <filled>-->
-<!--                            <prompt>The crop rotation tip is: <value expr="subdialog_tip"/></prompt>-->
-<!--                        </filled>-->
-<!--                    </subdialog>-->
-<!--                </if>-->
-<!--                <break time="3s"/>-->
-<!--                <goto next="#mainMenu"/>-->
-<!--            </filled>-->
-<!--        </field>-->
-<!--    </form>-->
+    <form id="agriculturalKnowledge">
+        <field name="agknowledge">
+            <prompt>
+                Access daily agricultural tips, updates, and best practices. Please select a category.
+                You can say soil for soil management tips.
+                You can say water for water conservation techniques.
+                You can say pest for pest control.
+                You can say crop for crop rotation advice.
+                You can say return to go back the main menu.
+            </prompt>
+            <grammar mode="voice" root="item5">
+                <rule id="item5">
+                    <one-of>
+                        <item>soil</item>
+                        <item>water</item>
+                        <item>pest</item>
+                        <item>crop</item>
+                        <item>Return</item>
+                    </one-of>
+                </rule>
+            </grammar>
+            <filled>
+                <if cond="agknowledge == 'return' ">
+                    <prompt>
+                        You will return to the main menu.
+                    </prompt>
+                </if>
+                <elseif cond="agknowledge == 'soil'">
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=soil" method="get">
+                        <filled>
+                            <prompt>The soil management tip is: <value expr="subdialog_tip"/></prompt>
+                        </filled>
+                    </subdialog>
+                <elseif cond="agknowledge == 'water'"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=water" method="get">
+                        <filled>
+                            <prompt>The water conservation tip is: <value expr="subdialog_tip"/></prompt>
+                        </filled>
+                    </subdialog>
+                <elseif cond="agknowledge == 'pest'"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=pest" method="get">
+                        <filled>
+                            <prompt>The pest control tip is: <value expr="subdialog_tip"/></prompt>
+                        </filled>
+                    </subdialog>
+                <elseif cond="agknowledge == 'crop'"/>
+                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/agriculturalKnowledge?category=crop" method="get">
+                        <filled>
+                            <prompt>The crop rotation tip is: <value expr="subdialog_tip"/></prompt>
+                        </filled>
+                    </subdialog>
+                </elseif>
+                <break time="3s"/>
+                <goto next="#mainMenu"/>
+            </filled>
+        </field>
+    </form>
 
 <!--    <form id="alertSubscribe">-->
 <!--        <field name="subscrib">-->
