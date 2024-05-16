@@ -1,6 +1,6 @@
 # VoxMeteo Sahel: Harnessing Voice Technology for Timely Rain Data and Predictions to Support Agricultural Decision-Making in the Sahel
 ## Overview
-The Weather Project is a Django-based weather information service application that provides various functional modules including agricultural services, messaging services, subscription services, and weather reports. 
+METEO Service is a VoiceXML&Flask application that provides agricultural-related weather information and suggestions. 
 ## VoiceXML Prototype Access
 | Number Type                       | Number                                      |
 |-----------------------------------|---------------------------------------------|
@@ -9,26 +9,39 @@ The Weather Project is a Django-based weather information service application th
 | Skype VoIP                           | +990009369996145787                      |
 | SIP VoIP                             | sip:9996145787@sip.voxeo.net            |
 
-## How to Run the Django Project
-1. Make sure you have Python and Django installed.
-2. Use a virtual environment to manage the project dependencies. You can create and activate a virtual environment with the following commands:
+## Flask Server Running and Test Guide
+### 1. Clone the repository
 
-    ```bash
-    python -m venv venv
-    source venv/bin/activate   # On Linux/macOS
-    venv\Scripts\activate      # On Windows
-    ```
-
-3. Install dependencies in the project root directory:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. Modify the view functions in `weather_project/weather/views.py` to suit your requirements, and modify the template files as needed.
-5. Run the development server:
-
-    ```bash
-    python manage.py runserver
-    ```
+```sh
+git clone https://github.com/yourusername/meteo-service.git
+cd meteo-service
+```
+### 2. Create and activate a virtual environment
+For windows: 
+```
+python -m venv venv
+venv\Scripts\activate
+```
+For Unix or MacOS:
+```
+python -m venv venv
+source venv/bin/activate
+```
+### 3. Install dependencies
+```
+pip install -r requirements.txt
+```
+### 4. Run the application
+```
+python app.py
+```
+### 5. Run tests
+```
+python -m unittest discover -s tests
+```
 ## Cloud Platform Implementation
+Our VoiceXML is already implemented on https://evolution.voxeo.com/. To deploy the METEO Service to a cloud provider (e.g., AWS, Heroku, Azure), follow the provider's specific instructions for deploying a Flask application. Ensure that your deployment includes the following configurations:
+1. Environment Variables: Set up any necessary environment variables.
+2. Port Configuration: Make sure the application is configured to run on the appropriate port (e.g., 80 for HTTP, 443 for HTTPS).
+3. Domain Configuration: Point your domain to the cloud service's IP address or use their domain management tools.
+4. After updating the voice_local.xml file and deploying it, test the integration by accessing the Voxeo Evolution platform. 
