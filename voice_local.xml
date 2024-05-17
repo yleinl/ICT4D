@@ -173,15 +173,23 @@
         </field>
     </form>
 
-     <form id="seasonalWeather">
+
+    <form id="seasonalWeather">
         <block>
-            <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
-            <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt>
-            <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/seasonalWeather" method="get">
-                <filled>
-                    <prompt>The seasonal weather outlook is: <value expr="outlook"/></prompt>
-                </filled>
-            </subdialog>
+            <!-- <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
+            <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt> -->
+
+            <filled>
+                <var name="url" expr="'https://ict4dassignment-d97a46441a51.herokuapp.com/seasonalWeather'"/>
+                <data srcexpr="{url}" name="response" accept="application/json"/>
+                <prompt bargein="true">The seasonal weather outlook is: 
+                <say-as interpret-as="spell">
+                    <value expr="response.outlook"/>
+                </say-as>
+                </prompt>
+                
+            </filled>
+            
             <break time="3s"/>
             <goto next="#mainMenu"/>
         </block>
