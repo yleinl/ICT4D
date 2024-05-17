@@ -192,8 +192,6 @@
 
                 <if cond="response.outlook">
                     <prompt>The seasonal weather outlook is: <value expr="response.outlook"/></prompt>
-                <elseif cond="response.message == 'no data'"/>
-                    <prompt bargein="true">No data available. Please try again later.</prompt>
                 <else/>
                     <prompt bargein="true">An error occurred. Please try again later.</prompt>
                 </if>
