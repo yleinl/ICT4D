@@ -177,16 +177,33 @@
         <block>
             <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
             <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt>
+
+            <var name="url" expr="'https://ict4dassignment-d97a46441a51.herokuapp.com/seasonalWeather'"/>
+            <data src="{url}" name="response" method="get" accept="application/json"/>
             
-            <subdialog name="subdialog" src="https://ict4dassignment-d97a46441a51.herokuapp.com/seasonalWeather" method="get">
-                <filled>
-                    <prompt>The seasonal weather outlook is: <value expr="subdialog.subdialog_outlook"/></prompt>
-                </filled>
-            </subdialog>
+            <filled>
+                <!-- Log the API response for debugging purposes -->
+                <log>API response: <value expr="response"/></log>
+                
+                <!-- Output the seasonal weather outlook -->
+                <prompt>
+                    The seasonal weather outlook is: <value expr="response.outlook"/>
+                </prompt>
+
+                <if cond="response.outlook">
+                    <prompt>The seasonal weather outlook is: <value expr="response.outlook"/></prompt>
+                <elseif cond="response.message == 'no data'"/>
+                    <prompt bargein="true">No data available. Please try again later.</prompt>
+                <else/>
+                    <prompt bargein="true">An error occurred. Please try again later.</prompt>
+                </if>
+            </filled>
+            
             <break time="3s"/>
             <goto next="#mainMenu"/>
         </block>
     </form>
+
 
     <form id="plantingSuggestion">
         <field name="planting">
