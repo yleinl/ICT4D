@@ -173,13 +173,14 @@
         </field>
     </form>
 
-     <form id="seasonalWeather">
+    <form id="seasonalWeather">
         <block>
             <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
             <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt>
-            <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/seasonalWeather" method="get">
+            
+            <subdialog name="subdialog" src="https://ict4dassignment-d97a46441a51.herokuapp.com/seasonalWeather" method="get">
                 <filled>
-                    <prompt>The seasonal weather outlook is: <value expr="subdialog_outlook"/></prompt>
+                    <prompt>The seasonal weather outlook is: <value expr="subdialog.subdialog_outlook"/></prompt>
                 </filled>
             </subdialog>
             <break time="3s"/>
