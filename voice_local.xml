@@ -175,9 +175,9 @@
 
 
     <form id="seasonalWeather">
-        <block>
-            <!-- <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
-            <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt> -->
+        <field name="seasonalw">
+            <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
+            <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt>
 
             <filled>
                 <var name="url" expr="'https://ict4dassignment-d97a46441a51.herokuapp.com/seasonalWeather'"/>
@@ -192,7 +192,7 @@
             
             <break time="3s"/>
             <goto next="#mainMenu"/>
-        </block>
+        </field>
     </form>
 
     <form id="plantingSuggestion">
