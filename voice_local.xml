@@ -188,244 +188,102 @@
         </field>
     </form>
 
-<!--    <form id="weatherReport">-->
-<!--        <field name="date">-->
-<!--            <prompt>-->
-<!--                Access detailed daily and weekly weather forecasts to support your farming decisions. Please select the date of forecast you need.-->
-<!--                If you want to know Today's weather, you can say 'Today'.-->
-<!--                You can say the number of one to seven for next seven days weather.-->
-<!--                You can say week for a summary of next week's weather.-->
-<!--                You can say return to go back the main menu.-->
-<!--            </prompt>-->
-<!--            <grammar mode="voice" root="item3">-->
-<!--                <rule id="item3">-->
-<!--                    <one-of>-->
-<!--                        <item>Today</item>-->
-<!--                        <item>One</item>-->
-<!--                        <item>Two</item>-->
-<!--                        <item>Three</item>-->
-<!--                        <item>Four</item>-->
-<!--                        <item>Five</item>-->
-<!--                        <item>Six</item>-->
-<!--                        <item>Seven</item>-->
-<!--                        <item>Weak</item>-->
-<!--                        <item>return</item>-->
-<!--                    </one-of>-->
-<!--                </rule>-->
-<!--            </grammar>-->
-<!--            <filled>-->
-<!--                <if cond="date == 'return' ">-->
-<!--                    <prompt>You will return to the main menu.</prompt>-->
-<!--                <elseif cond="date == 'Week'"/>-->
-<!--                    <prompt>Here's the weekly weather summary: Sunny throughout the week with occasional showers on Friday and Saturday.</prompt>-->
-<!--                <else/>-->
-<!--                    <prompt>-->
-<!--                        <if cond="date == 'Today'">-->
-<!--                            Today's weather report: Sunny with a high of 28°C and a slight breeze.-->
-<!--                        </if>-->
-<!--                        <elseif cond="date == 'One'">-->
-<!--                            Weather report for day one: Partly cloudy with a chance of rain in the afternoon, high of 26°C.-->
-<!--                        </elseif>-->
-<!--                        <elseif cond="date == 'Two'">-->
-<!--                            Weather report for day two: Mostly sunny with a high of 29°C and light winds.-->
-<!--                        </elseif>-->
-<!--                        <elseif cond="date == 'Three'">-->
-<!--                            Weather report for day three: Cloudy with occasional showers, high of 24°C.-->
-<!--                        </elseif>-->
-<!--                        <elseif cond="date == 'Four'">-->
-<!--                            Weather report for day four: Thunderstorms expected in the morning, clearing up in the afternoon, high of 22°C.-->
-<!--                        </elseif>-->
-<!--                        <elseif cond="date == 'Five'">-->
-<!--                            Weather report for day five: Mostly clear skies, high of 27°C with moderate humidity.-->
-<!--                        </elseif>-->
-<!--                        <elseif cond="date == 'Six'">-->
-<!--                            Weather report for day six: Overcast with periods of rain, high of 23°C and breezy conditions.-->
-<!--                        </elseif>-->
-<!--                        <elseif cond="date == 'Seven'">-->
-<!--                            Weather report for day seven: Sunny and warm, high of 30°C with light winds.-->
-<!--                        </elseif>-->
-<!--                    </prompt>-->
-<!--                </if>-->
-<!--                <break time="3s"/>-->
-<!--                <goto next="#mainMenu"/>-->
-<!--            </filled>-->
-<!--        </field>-->
-<!--    </form>-->
-
     <form id="seasonalWeather">
-        <field name="seasonalw">
-            <prompt>The seasonal weather outlook is: Expect above-average temperatures and below-average rainfall for the upcoming season. Farmers are advised to implement water-saving techniques and monitor crops closely for signs of stress due to the anticipated dry conditions.</prompt>
-        </field>
-        <break time="3s"/>
-        <goto next="#mainMenu"/>
+        <block>
+            <prompt>Get an outlook on weather patterns for the upcoming months to help you plan your agricultural activities.</prompt>
+            <prompt>Insights into expected weather patterns, highlighting rainfall, temperature trends, and significant seasonal wind changes for the upcoming season.</prompt>
+            <break time="3s"/>
+            <goto next="#mainMenu"/>
+        </block>
     </form>
 
-<!--    <form id="plantingSuggestion">-->
-<!--        <field name="planting">-->
-<!--            <prompt>The planting suggestion for Fruit is: Plant fruit crops during the appropriate season.</prompt>-->
-<!--            <prompt>The planting suggestion for Grains is: Sow grains when weather conditions are favorable.</prompt>-->
-<!--            <prompt>The planting suggestion for Vegetables is: Grow vegetables suitable for the current climate.</prompt>-->
-<!--            <prompt>The planting suggestion for Specify is: Specify a crop for personalized planting suggestions.</prompt>-->
-<!--            <prompt>The planting suggestion for Return is: Return to the main menu.</prompt>-->
-<!--        </field>-->
-<!--        <break time="3s"/>-->
-<!--        <goto next="#mainMenu"/>-->
-<!--    </form>-->
     <form id="plantingSuggestion">
         <field name="planting">
             <prompt>For planting suggestions based on current and upcoming weather conditions, please select your crop. You can say return to go back the main menu. </prompt>
             <grammar mode="voice" root="item4">
                 <rule id="item4">
                     <one-of>
-                        <item>Fruit</item>
-                        <item>Grains</item>
-                        <item>Vegetables</item>
-                        <item>Specify</item>
-                        <item>Return</item>
+                    <item>Fruit</item>
+                    <item>Grains</item>
+                    <item>Vegetables</item>
+                    <item>Fruit</item>
+                    <item>Specify</item>
+                    <item>Return</item>
                     </one-of>
                 </rule>
             </grammar>
             <filled>
-                <if cond="planting == 'Return' ">
+                <if cond="planting == 'return' ">
                     <prompt>
                         You will return to the main menu.
                     </prompt>
                 <else/>
-                    <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/plantingSuggestion?crop={planting}" method="get">
-                        <filled>
-                            <prompt>The planting suggestion for {planting} is: <value expr="subdialog_suggestion"/></prompt>
-                        </filled>
-                    </subdialog>
+                    <prompt>
+                        You've selected <value expr="planting"/>. Here's the Planting practices suggestions for the selected crop based on weather predictions.
+                    </prompt>
                 </if>
                 <break time="3s"/>
                 <goto next="#mainMenu"/>
             </filled>
         </field>
     </form>
-<!--    <form id="plantingSuggestion">-->
-<!--        <field name="planting">-->
-<!--            <prompt>For personalized planting suggestions based on current and upcoming weather conditions, please select your crop. You can say return to go back to the main menu.</prompt>-->
-<!--            <grammar mode="voice" root="item4">-->
-<!--                <rule id="item4">-->
-<!--                    <one-of>-->
-<!--                        <item>Fruit</item>-->
-<!--                        <item>Grains</item>-->
-<!--                        <item>Vegetables</item>-->
-<!--                        <item>Specify</item>-->
-<!--                        <item>Return</item>-->
-<!--                    </one-of>-->
-<!--                </rule>-->
-<!--            </grammar>-->
-<!--            <filled>-->
-<!--                <if cond="planting == 'Return' ">-->
-<!--                    <prompt>You will return to the main menu.</prompt>-->
-<!--                <elseif cond="planting == 'Fruit'"/>-->
-<!--                    <prompt>The planting suggestion for Fruit is: Plant fruit crops during the appropriate season.</prompt>-->
-<!--                <elseif cond="planting == 'Grains'"/>-->
-<!--                    <prompt>The planting suggestion for Grains is: Sow grains when weather conditions are favorable.</prompt>-->
-<!--                <elseif cond="planting == 'Vegetables'"/>-->
-<!--                    <prompt>The planting suggestion for Vegetables is: Grow vegetables suitable for the current climate.</prompt>-->
-<!--                <elseif cond="planting == 'Specify'"/>-->
-<!--                    <prompt>The planting suggestion for Specify is: Specify a crop for personalized planting suggestions.</prompt>-->
-<!--                <else/>-->
-<!--                    <prompt>We're sorry, but we couldn't find planting suggestions for {planting} at the moment.</prompt>-->
-<!--                </if>-->
-<!--                <break time="3s"/>-->
-<!--                <goto next="#mainMenu"/>-->
-<!--            </filled>-->
-<!--        </field>-->
-<!--    </form>-->
+
 
     <form id="reportRainfall">
         <field name="rainfall" type="digits">
-            <prompt>
-                Contribute to our weather database by reporting rainfall in your area.
-                Please enter the amount of rainfall in your area using the keypad, followed by the # key.
-            </prompt>
+            <prompt>Contribute to our weather database by reporting rainfall in your area. Please enter the amount of rainfall in your area using the keypad, followed by the # key. </prompt>
             <filled>
-                <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/reportRainfall" method="post" namelist="rainfall">
-                    <filled>
-                        <prompt>
-                            The rainfall you reported is <value expr="rainfall"/>.
-                            Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.
-                        </prompt>
-                    </filled>
-                </subdialog>
+                <prompt>
+                    The rainfall you report is <value expr="rainfall"/>. Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.
+                </prompt>
                 <break time="3s"/>
                 <goto next="#mainMenu"/>
             </filled>
         </field>
     </form>
-<!--    <form id="reportRainfall">-->
-<!--        <field name="rainfall" type="digits">-->
-<!--            <prompt>The rainfall you reported is 50 mm. Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.</prompt>-->
-<!--        </field>-->
-<!--        <break time="3s"/>-->
-<!--        <goto next="#mainMenu"/>-->
-<!--    </form>-->
 
-<!--    <form id="indigenousKnowledge">-->
-<!--        <field name="knowledge">-->
-<!--            <prompt>The weather prediction information is: Detailed examples of how specific birds' activities or the appearance of certain plants are traditionally interpreted as signs predicting the start of the rainy season or indicating the expected season's quality.</prompt>-->
-<!--            <prompt>The weather adaptation information is: Insights into traditional methods of soil conservation, water management, and crop selection that align with anticipated weather conditions, based on indigenous knowledge.</prompt>-->
-<!--            <prompt>The farmer stories information is: Narratives and anecdotes from farmers illustrating practical applications of indigenous weather prediction and its impact on agricultural decisions, including how a combination of natural signs guides their preparation for wind and seasonal changes.</prompt>-->
-<!--            <prompt>You will return to the main menu.</prompt>-->
-<!--        </field>-->
-<!--        <break time="3s"/>-->
-<!--        <goto next="#mainMenu"/>-->
-<!--    </form>-->
-
-
-<!--    <form id="agriculturalKnowledge">-->
-<!--        <field name="agknowledge">-->
-<!--            <prompt>The soil management tip is: Daily tips and best practices for soil management.</prompt>-->
-<!--            <prompt>The water conservation tip is: Daily tips and best practices for water conservation.</prompt>-->
-<!--            <prompt>The pest control tip is: Daily tips and best practices for pest control.</prompt>-->
-<!--            <prompt>The crop rotation tip is: Daily tips and best practices for crop rotation.</prompt>-->
-<!--            <prompt>You will return to the main menu.</prompt>-->
-<!--        </field>-->
-<!--        <break time="3s"/>-->
-<!--        <goto next="#mainMenu"/>-->
-<!--    </form>-->
     <form id="indigenousKnowledge">
         <field name="knowledge">
             <prompt>
                 Explore ancient wisdom for modern farming success. Indigenous knowledge offers unique insights into weather prediction and agricultural adaptation. Please select a topic of interest.
-                You can say weather prediction to learn about signs from nature for weather prediction
-                You can say weather adaptation to discover traditional farming practices for weather adaptation
+                You can Say weather prediction to learn about signs from nature for weather prediction
+                You can Say weather adaptation to discover traditional farming practices for weather adaptation
                 You can say story to hear stories and lessons from local farmers
                 You can say return to go back the main menu.
             </prompt>
             <grammar mode="voice" root="item9">
                 <rule id="item9">
                     <one-of>
-                        <item>weather prediction</item>
-                        <item>weather adaptation</item>
-                        <item>story</item>
-                        <item>Return</item>
+                    <item>weather prediction</item>
+                    <item>weather adaptation</item>
+                    <item>story</item>
+                    <item>Return</item>
                     </one-of>
                 </rule>
             </grammar>
             <filled>
-                <if cond="knowledge == 'Return' ">
+                <if cond="knowledge == 'return' ">
                     <prompt>
                         You will return to the main menu.
                     </prompt>
+                <elseif cond = "knowledge == 'weather prediction" />
+                    <prompt>
+                        Detailed examples of how specific birds' activities or the appearance of certain plants are traditionally interpreted as signs predicting the start of the rainy season or indicating the expected season's quality.
+                    </prompt>
+                <elseif cond = "knowledge == 'weather adaption" />
+                    <prompt>
+                        Insights into traditional methods of soil conservation, water management, and crop selection that align with anticipated weather conditions, based on indigenous knowledge.
+                    </prompt>
+                <elseif cond = "knowledge == 'story" />
+                    <prompt>
+                        Narratives and anecdotes from farmers illustrating practical applications of indigenous weather prediction and its impact on agricultural decisions, including how a combination of natural signs guides their preparation for wind and seasonal changes.
+                    </prompt>
                 </if>
-                <elseif cond="knowledge == 'weather prediction'">
-                    <prompt>The weather prediction information is: Detailed examples of how specific birds' activities or the appearance of certain plants are traditionally interpreted as signs predicting the start of the rainy season or indicating the expected season's quality.</prompt>
-                <elseif cond="knowledge == 'weather adaptation'"/>
-                    <prompt>The weather adaptation information is: Insights into traditional methods of soil conservation, water management, and crop selection that align with anticipated weather conditions, based on indigenous knowledge.</prompt>
-                <elseif cond="knowledge == 'story'"/>
-                    <prompt>The farmer stories information is: Narratives and anecdotes from farmers illustrating practical applications of indigenous weather prediction and its impact on agricultural decisions, including how a combination of natural signs guides their preparation for wind and seasonal changes.</prompt>
-                </elseif>
                 <break time="3s"/>
                 <goto next="#mainMenu"/>
             </filled>
         </field>
     </form>
-
-
     <form id="agriculturalKnowledge">
         <field name="agknowledge">
             <prompt>
@@ -439,36 +297,83 @@
             <grammar mode="voice" root="item5">
                 <rule id="item5">
                     <one-of>
-                        <item>soil</item>
-                        <item>water</item>
-                        <item>pest</item>
-                        <item>crop</item>
-                        <item>Return</item>
+                    <item>soil</item>
+                    <item>water</item>
+                    <item>pest</item>
+                    <item>crop</item>
+                    <item>Return</item>
                     </one-of>
                 </rule>
             </grammar>
             <filled>
-                <if cond="agknowledge == 'Return' ">
+                <if cond="agknowledge == 'return' ">
                     <prompt>
                         You will return to the main menu.
                     </prompt>
+                <elseif cond = "agknowledge == 'soil" />
+                    <prompt>
+                        Daily tips and best practices in the selected category.
+                    </prompt>
+                <elseif cond = "agknowledge == 'water" />
+                    <prompt>
+                        Daily tips and best practices in the selected category.
+                    </prompt>
+                <elseif cond = "agknowledge == 'pest" />
+                    <prompt>
+                        Daily tips and best practices in the selected category.
+                    </prompt>
+                <elseif cond = "agknowledge == 'crop" />
+                    <prompt>
+                        Daily tips and best practices in the selected category.
+                    </prompt>
                 </if>
-                <elseif cond="agknowledge == 'soil'">
-                    <prompt>The soil management tip is: Daily tips and best practices for soil management.</prompt>
-                <elseif cond="agknowledge == 'water'"/>
-                    <prompt>The water conservation tip is: Daily tips and best practices for water conservation.</prompt>
-                <elseif cond="agknowledge == 'pest'"/>
-                    <prompt>The pest control tip is: Daily tips and best practices for pest control.</prompt>
-                <elseif cond="agknowledge == 'crop'"/>
-                    <prompt>The crop rotation tip is: Daily tips and best practices for crop rotation.</prompt>
-                </elseif>
                 <break time="3s"/>
                 <goto next="#mainMenu"/>
             </filled>
         </field>
     </form>
-
-
+    <form id="alertSubscribe">
+        <field name="subscrib">
+            <prompt>
+                Subscribe to weather and agricultural alerts personalized to your location and crop preference.
+                You can say week for weekly Subscription.
+                You can say day for daily subscription.
+                You can say cancel for cancel the subscription.
+                You can say return to go back the main menu.
+            </prompt>
+            <grammar mode="voice" root="item6">
+                <rule id="item6">
+                    <one-of>
+                    <item>day</item>
+                    <item>week</item>
+                    <item>cancel</item>
+                    <item>Return</item>
+                    </one-of>
+                </rule>
+            </grammar>
+            <filled>
+                <if cond="subscrib == 'return' ">
+                    <prompt>
+                        You will return to the main menu.
+                    </prompt>
+                <elseif cond = "subscrib == 'week" />
+                    <prompt>
+                        You have subscribed a weekly alert.
+                    </prompt>
+                <elseif cond = "subscrib == 'cancel" />
+                    <prompt>
+                        You have cancel the alert subscription.
+                    </prompt>
+                <elseif cond = "subscrib == 'day" />
+                    <prompt>
+                        You have subscribed a daily alert.
+                    </prompt>
+                </if>
+                <break time="3s"/>
+                <goto next="#mainMenu"/>
+            </filled>
+        </field>
+    </form>
     <form id="message">
         <record name="msg"
             beep="true"
@@ -476,15 +381,15 @@
             finalsilence="4000ms"
             type="audio/x-wav">
         <prompt timeout="5s">
-            Please leave your message after it starts recording.
+            Please leave your message after it start recording.
         </prompt>
         </record>
         <block>
             <prompt>
-                Your message is {msg}. Message successfully recorded.
+                Your message is <value expr="msg"/>. Message successfully.
             </prompt>
         </block>
-        <submit next="https://ict4dassignment-d97a46441a51.herokuapp.com/message" method="post" namelist="msg"/>
+        <break time="3s"/>
         <goto next="#mainMenu"/>
     </form>
 </vxml>
