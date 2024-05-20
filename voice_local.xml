@@ -254,7 +254,7 @@
 
     <form id="seasonalWeather">
         <field name="seasonalw">
-            <prompt>The seasonal weather outlook is: Expect above-average temperatures and below-average rainfall for the upcoming season. Farmers are advised to implement water-saving techniques and monitor crops closely for signs of stress due to the anticipated dry conditions.</prompt>
+            <prompt>The seasonal weather outlook is: Expect above-average temperatures and below-average rainfall for the upcoming season. </prompt>
         </field>
         <break time="3s"/>
         <goto next="#mainMenu"/>
@@ -277,7 +277,7 @@
             <filled>
                 <if cond="planting == 'Return' ">
                     <prompt>
-                        You will return to the main menu.
+                        You will return to the main menu.z
                     </prompt>
                 <else/>
                     <subdialog src="https://ict4dassignment-d97a46441a51.herokuapp.com/plantingSuggestion?crop={planting}" method="get">
