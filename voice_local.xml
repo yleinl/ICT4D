@@ -302,39 +302,39 @@
 <!--            </filled>-->
 <!--        </field>-->
 <!--    </form>-->
-<!--    <form id="plantingSuggestion">-->
-<!--        <field name="planting">-->
-<!--            <prompt>For personalized planting suggestions based on current and upcoming weather conditions, please select your crop. You can say return to go back to the main menu.</prompt>-->
-<!--            <grammar mode="voice" root="item4">-->
-<!--                <rule id="item4">-->
-<!--                    <one-of>-->
-<!--                        <item>Fruit</item>-->
-<!--                        <item>Grains</item>-->
-<!--                        <item>Vegetables</item>-->
-<!--                        <item>Specify</item>-->
-<!--                        <item>Return</item>-->
-<!--                    </one-of>-->
-<!--                </rule>-->
-<!--            </grammar>-->
-<!--            <filled>-->
-<!--                <if cond="planting == 'Return' ">-->
-<!--                    <prompt>You will return to the main menu.</prompt>-->
-<!--                <elseif cond="planting == 'Fruit'"/>-->
-<!--                    <prompt>The planting suggestion for Fruit is: Plant fruit crops during the appropriate season.</prompt>-->
-<!--                <elseif cond="planting == 'Grains'"/>-->
-<!--                    <prompt>The planting suggestion for Grains is: Sow grains when weather conditions are favorable.</prompt>-->
-<!--                <elseif cond="planting == 'Vegetables'"/>-->
-<!--                    <prompt>The planting suggestion for Vegetables is: Grow vegetables suitable for the current climate.</prompt>-->
-<!--                <elseif cond="planting == 'Specify'"/>-->
-<!--                    <prompt>The planting suggestion for Specify is: Specify a crop for personalized planting suggestions.</prompt>-->
-<!--                <else/>-->
-<!--                    <prompt>We're sorry, but we couldn't find planting suggestions for {planting} at the moment.</prompt>-->
-<!--                </if>-->
-<!--                <break time="3s"/>-->
-<!--                <goto next="#mainMenu"/>-->
-<!--            </filled>-->
-<!--        </field>-->
-<!--    </form>-->
+    <form id="plantingSuggestion">
+        <field name="planting">
+            <prompt>For personalized planting suggestions based on current and upcoming weather conditions, please select your crop. You can say return to go back to the main menu.</prompt>
+            <grammar mode="voice" root="item4">
+                <rule id="item4">
+                    <one-of>
+                        <item>Fruit</item>
+                        <item>Grains</item>
+                        <item>Vegetables</item>
+                        <item>Specify</item>
+                        <item>Return</item>
+                    </one-of>
+                </rule>
+            </grammar>
+            <filled>
+                <if cond="planting == 'Return' ">
+                    <prompt>You will return to the main menu.</prompt>
+                <elseif cond="planting == 'Fruit'"/>
+                    <prompt>The planting suggestion for Fruit is: Plant fruit crops during the appropriate season.</prompt>
+                <elseif cond="planting == 'Grains'"/>
+                    <prompt>The planting suggestion for Grains is: Sow grains when weather conditions are favorable.</prompt>
+                <elseif cond="planting == 'Vegetables'"/>
+                    <prompt>The planting suggestion for Vegetables is: Grow vegetables suitable for the current climate.</prompt>
+                <elseif cond="planting == 'Specify'"/>
+                    <prompt>The planting suggestion for Specify is: Specify a crop for personalized planting suggestions.</prompt>
+                <else/>
+                    <prompt>We're sorry, but we couldn't find planting suggestions for {planting} at the moment.</prompt>
+                </if>
+                <break time="3s"/>
+                <goto next="#mainMenu"/>
+            </filled>
+        </field>
+    </form>
 
 <!--    <form id="reportRainfall">-->
 <!--        <field name="rainfall" type="digits">-->
@@ -356,13 +356,13 @@
 <!--            </filled>-->
 <!--        </field>-->
 <!--    </form>-->
-<!--    <form id="reportRainfall">-->
-<!--        <field name="rainfall" type="digits">-->
-<!--            <prompt>The rainfall you reported is 50 mm. Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.</prompt>-->
-<!--        </field>-->
-<!--        <break time="3s"/>-->
-<!--        <goto next="#mainMenu"/>-->
-<!--    </form>-->
+    <form id="reportRainfall">
+        <field name="rainfall" type="digits">
+            <prompt>The rainfall you reported is 50 mm. Thank you for reporting. Your rainfall data helps improve weather predictions for all farmers.</prompt>
+        </field>
+        <break time="3s"/>
+        <goto next="#mainMenu"/>
+    </form>
 
 <!--    <form id="indigenousKnowledge">-->
 <!--        <field name="knowledge">-->
